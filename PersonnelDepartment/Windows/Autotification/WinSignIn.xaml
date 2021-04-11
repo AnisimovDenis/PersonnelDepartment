@@ -7,10 +7,17 @@
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Авторизация"
+    Width="900"
+    Height="630"
     mah:ShowTitleBar="True"
+    mah:ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
+        <Image Source="/Resources/Background.jpg"/>
+        <Rectangle Fill="Black"
+                   Opacity="0.05"/>
+
         
     </Grid>
 </mah:MetroWindow>
