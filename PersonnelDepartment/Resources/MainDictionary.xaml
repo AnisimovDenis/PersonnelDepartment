@@ -13,6 +13,7 @@
 
     <SolidColorBrush x:Key="Main" Color="#0079C2" />
     <SolidColorBrush x:Key="Foreground" Color="#818181" />
+    <SolidColorBrush x:Key="BorderBrush" Color="#3C3C3C" />
 
     <Style x:Key="LabelHeadline" TargetType="Label">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -30,6 +31,8 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="Margin" Value="8" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
     </Style>
 
     <Style BasedOn="{StaticResource MahApps.Styles.PasswordBox.Win8}" TargetType="PasswordBox">
@@ -38,6 +41,8 @@
         <Setter Property="FontSize" Value="18" />
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="Margin" Value="8" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
     </Style>
 
     <Style
@@ -46,10 +51,11 @@
         TargetType="Button">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="12" />
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="Margin" Value="8" />
         <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
     </Style>
 
     <Style BasedOn="{StaticResource MahApps.Styles.Button.Flat}" TargetType="Button">
