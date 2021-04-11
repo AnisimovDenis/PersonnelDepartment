@@ -40,6 +40,14 @@
 
             <TextBox Grid.Row="2" mah:TextBoxHelper.Watermark="Логин" />
             <PasswordBox Grid.Row="3" mah:TextBoxHelper.Watermark="Пароль" />
+
+            <Button
+                Grid.Row="3"
+                VerticalAlignment="Bottom"
+                Content="Восстановить пароль"
+                Style="{DynamicResource ButtonTransparent}" />
+
+            <Button Grid.Row="4" Content="Войти" />
         </Grid>
     </Grid>
 </mah:MetroWindow>
