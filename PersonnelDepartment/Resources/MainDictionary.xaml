@@ -11,6 +11,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <SolidColorBrush x:Key="Main" Color="#0079C2" />
+    <SolidColorBrush x:Key="Foreground" Color="#818181" />
 
     <Style x:Key="LabelHeadline" TargetType="Label">
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -19,5 +20,14 @@
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{StaticResource Main}" />
+        <Setter Property="Margin" Value="8" />
+    </Style>
+
+    <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Margin" Value="8" />
     </Style>
 </ResourceDictionary>

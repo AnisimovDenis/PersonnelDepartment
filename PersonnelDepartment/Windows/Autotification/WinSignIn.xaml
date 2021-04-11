@@ -33,9 +33,12 @@
 
             <Image Width="150" Source="/Resources/logo.png" />
 
-            <Label Content="Авторизация"
-                   Grid.Row="1"
-                   Style="{DynamicResource LabelHeadline}"/>
+            <Label
+                Grid.Row="1"
+                Content="Авторизация"
+                Style="{DynamicResource LabelHeadline}" />
+
+            <TextBox Grid.Row="2" mah:TextBoxHelper.Watermark="Логин" />
         </Grid>
     </Grid>
 </mah:MetroWindow>
