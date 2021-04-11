@@ -9,15 +9,33 @@
     Title="Авторизация"
     Width="900"
     Height="630"
-    mah:ShowTitleBar="True"
     mah:ResizeMode="NoResize"
+    mah:ShowTitleBar="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
-        <Image Source="/Resources/Background.jpg"/>
-        <Rectangle Fill="Black"
-                   Opacity="0.05"/>
+        <Image Source="/Resources/Background.jpg" />
+        <Rectangle Fill="Black" Opacity="0.05" />
 
-        
+        <Grid Margin="275,100">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Rectangle
+                Grid.RowSpan="5"
+                Fill="White"
+                Opacity="0.75" />
+
+            <Image Width="150" Source="/Resources/logo.png" />
+
+            <Label Content="Авторизация"
+                   Grid.Row="1"
+                   Style="{DynamicResource LabelHeadline}"/>
+        </Grid>
     </Grid>
 </mah:MetroWindow>
