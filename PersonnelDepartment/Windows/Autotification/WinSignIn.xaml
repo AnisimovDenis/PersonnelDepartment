@@ -31,7 +31,7 @@
                 Fill="White"
                 Opacity="0.75" />
 
-            <Image Width="150" Source="/Resources/logo.png" />
+            <Image Width="250" Source="/Resources/logo.png" />
 
             <Label
                 Grid.Row="1"
@@ -39,6 +39,7 @@
                 Style="{DynamicResource LabelHeadline}" />
 
             <TextBox Grid.Row="2" mah:TextBoxHelper.Watermark="Логин" />
+            <PasswordBox Grid.Row="3" mah:TextBoxHelper.Watermark="Пароль" />
         </Grid>
     </Grid>
 </mah:MetroWindow>

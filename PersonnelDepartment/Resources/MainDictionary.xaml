@@ -30,4 +30,12 @@
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="Margin" Value="8" />
     </Style>
+
+    <Style BasedOn="{StaticResource MahApps.Styles.PasswordBox.Win8}" TargetType="PasswordBox">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Margin" Value="8" />
+    </Style>
 </ResourceDictionary>
