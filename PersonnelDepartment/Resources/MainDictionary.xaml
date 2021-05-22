@@ -21,7 +21,6 @@
         <Setter Property="FontSize" Value="22" />
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="Foreground" Value="{StaticResource Main}" />
         <Setter Property="Margin" Value="8" />
     </Style>
 
