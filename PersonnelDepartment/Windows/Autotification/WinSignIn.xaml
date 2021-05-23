@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:PersonnelDepartment.Windows.Autotification"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="clr-namespace:PersonnelDepartment.Views"
+    xmlns:view="clr-namespace:PersonnelDepartment.Views.SignIn"
     Title="Авторизация"
     Width="900"
     Height="630"
@@ -19,7 +19,8 @@
         <Rectangle Fill="Black" Opacity="0.05" />
 
         <Grid Margin="275,100">
-            <view:SignInView />
+            <view:SignInView Visibility="Hidden"/>
+            <view:PasswordRecoveryView />
         </Grid>
     </Grid>
 </mah:MetroWindow>

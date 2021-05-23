@@ -72,7 +72,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\SignInView.xaml.cs">
+    <Compile Include="Views\SignIn\PasswordRecoveryView.xaml.cs">
+      <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SignIn\SignInView.xaml.cs">
       <DependentUpon>SignInView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
@@ -112,7 +115,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SignInView.xaml">
+    <Page Include="Views\SignIn\PasswordRecoveryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignIn\SignInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

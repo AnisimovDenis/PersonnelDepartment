@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PersonnelDepartment.Views
+namespace PersonnelDepartment.Views.SignIn
 {
     /// <summary>
     /// Interaction logic for SignInView.xaml
