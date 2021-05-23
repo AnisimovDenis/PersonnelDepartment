@@ -165,6 +165,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SignIn\CaptchaView.xaml.cs">
+      <DependentUpon>CaptchaView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SignIn\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
     </Compile>
@@ -205,6 +208,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SignIn\CaptchaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

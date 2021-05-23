@@ -24,6 +24,7 @@
         <Setter Property="Margin" Value="8" />
     </Style>
 
+
     <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -32,6 +33,18 @@
         <Setter Property="Margin" Value="8" />
         <Setter Property="Foreground" Value="{StaticResource Foreground}" />
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+    </Style>
+
+    <Style
+        x:Key="TextBlockMain"
+        BasedOn="{StaticResource MahApps.Styles.TextBlock}"
+        TargetType="TextBlock">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Margin" Value="8" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
     </Style>
 
     <Style BasedOn="{StaticResource MahApps.Styles.PasswordBox.Win8}" TargetType="PasswordBox">
