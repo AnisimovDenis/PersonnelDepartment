@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:PersonnelDepartment.Windows.Autotification"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:PersonnelDepartment.Views"
     Title="Авторизация"
     Width="900"
     Height="630"
@@ -18,63 +19,7 @@
         <Rectangle Fill="Black" Opacity="0.05" />
 
         <Grid Margin="275,100">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-
-            <Rectangle
-                Grid.RowSpan="6"
-                Fill="White"
-                Opacity="0.85" />
-
-            <Image
-                Width="250"
-                Margin="8"
-                Source="/Resources/logo.png" />
-
-            <Label
-                Grid.Row="1"
-                Content="Авторизация"
-                Foreground="#FF8C8C8C"
-                Style="{DynamicResource LabelHeadline}" />
-
-            <TextBox
-                Grid.Row="2"
-                Margin="24,8,24,8"
-                mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Логин"
-                Background="Transparent" />
-
-            <Grid Grid.Row="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <PasswordBox
-                    Margin="24,8,24,8"
-                    mah:ControlsHelper.CornerRadius="5"
-                    mah:TextBoxHelper.Watermark="Пароль"
-                    Background="Transparent" />
-                <Button
-                    Grid.Row="1"
-                    Margin="0,0,8,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    Content="Восстановить пароль"
-                    Foreground="Black"
-                    Style="{DynamicResource ButtonTransparent}" />
-            </Grid>
-
-
-
-            <Button
-                Grid.Row="5"
-                mah:ControlsHelper.CornerRadius="5"
-                Content="Войти" />
+            <view:SignInView />
         </Grid>
     </Grid>
 </mah:MetroWindow>
