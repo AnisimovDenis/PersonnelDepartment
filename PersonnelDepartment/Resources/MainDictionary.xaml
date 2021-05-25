@@ -18,7 +18,7 @@
     <Style x:Key="LabelHeadline" TargetType="Label">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontSize" Value="24" />
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Margin" Value="8" />

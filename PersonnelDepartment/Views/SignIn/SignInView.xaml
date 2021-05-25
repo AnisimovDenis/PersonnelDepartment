@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition />
-            <RowDefinition />
+            <RowDefinition Height="0.75*"/>
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -24,8 +24,8 @@
             Opacity="0.85" />
 
         <Image
-            Width="250"
-            Margin="8"
+            Width="200"
+            Margin="8,24,8,8"
             Source="/Resources/logo.png" />
 
         <Label
@@ -36,7 +36,7 @@
 
         <TextBox
             Grid.Row="2"
-            Margin="24,8,24,8"
+            Margin="24,8,24,16"
             mah:ControlsHelper.CornerRadius="5"
             mah:TextBoxHelper.Watermark="Логин"
             Background="Transparent" />
@@ -48,7 +48,7 @@
             </Grid.RowDefinitions>
 
             <PasswordBox
-                Margin="24,8,24,8"
+                Margin="24,0,24,8"
                 mah:ControlsHelper.CornerRadius="5"
                 mah:TextBoxHelper.Watermark="Пароль"
                 Background="Transparent" />
@@ -67,6 +67,7 @@
 
         <Button
             Grid.Row="5"
+            Margin="8 8 8 24"
             mah:ControlsHelper.CornerRadius="5"
             Content="Войти" />
     </Grid>

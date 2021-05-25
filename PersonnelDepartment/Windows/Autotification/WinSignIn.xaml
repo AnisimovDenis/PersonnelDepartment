@@ -19,9 +19,9 @@
         <Rectangle Fill="Black" Opacity="0.05" />
 
         <Grid Margin="275,100">
-            <view:SignInView Visibility="Hidden" />
+            <view:SignInView />
             <view:PasswordRecoveryView Visibility="Hidden" />
-            <view:CaptchaView />
+            <view:CaptchaView Visibility="Hidden" />
         </Grid>
     </Grid>
 </mah:MetroWindow>

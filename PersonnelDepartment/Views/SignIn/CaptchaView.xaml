@@ -25,29 +25,28 @@
             Opacity="0.85" />
 
         <Image
-            Width="250"
-            Margin="8"
+            Width="200"
+            Margin="8 24 8 8"
             Source="/Resources/logo.png" />
 
         <Label
             Grid.Row="1"
             Content="Капча"
-            FontSize="24"
             Foreground="#FF8C8C8C"
             Style="{DynamicResource LabelHeadline}" />
 
         <Rectangle
             Grid.Row="2"
             Height="28"
-            Margin="24,8,24,8"
+            Margin="40,8,40,8"
             VerticalAlignment="Center"
-            Stroke="#FF3C3C3C" 
             RadiusX="5"
-            RadiusY="5"/>
+            RadiusY="5"
+            Stroke="#FF3C3C3C" />
 
         <TextBlock
             Grid.Row="2"
-            Margin="24,8,24,8"
+            Margin="40,8,40,8"
             mah:ControlsHelper.CornerRadius="5"
             mah:TextBoxHelper.Watermark="Логин"
             Background="Transparent"
@@ -55,7 +54,7 @@
 
         <Button
             Grid.Row="2"
-            Margin="32,0"
+            Margin="42,0"
             HorizontalAlignment="Right"
             Foreground="{DynamicResource Main}"
             Style="{DynamicResource ButtonTransparent}">
@@ -64,15 +63,17 @@
 
         <TextBox
             Grid.Row="3"
-            Margin="24,8,24,8"
+            Margin="40,8,40,8"
+            VerticalAlignment="Top"
             Padding="0,0,35,0"
             mah:ControlsHelper.CornerRadius="5"
             Background="Transparent" />
 
         <Button
             Grid.Row="3"
-            Margin="32,0"
+            Margin="42,11"
             HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Foreground="{DynamicResource Main}"
             Style="{DynamicResource ButtonTransparent}">
             <iconPacks:Material Kind="Check" />
