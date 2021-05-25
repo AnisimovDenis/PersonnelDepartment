@@ -26,13 +26,12 @@
 
         <Image
             Width="200"
-            Margin="8 24 8 8"
+            Margin="8,24,8,8"
             Source="/Resources/logo.png" />
 
         <Label
             Grid.Row="1"
             Content="Капча"
-            Foreground="#FF8C8C8C"
             Style="{DynamicResource LabelHeadline}" />
 
         <Rectangle
@@ -64,8 +63,8 @@
         <TextBox
             Grid.Row="3"
             Margin="40,8,40,8"
-            VerticalAlignment="Top"
             Padding="0,0,35,0"
+            VerticalAlignment="Top"
             mah:ControlsHelper.CornerRadius="5"
             Background="Transparent" />
 

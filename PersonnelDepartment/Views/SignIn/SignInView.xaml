@@ -31,7 +31,6 @@
         <Label
             Grid.Row="1"
             Content="Авторизация"
-            Foreground="#FF8C8C8C"
             Style="{DynamicResource LabelHeadline}" />
 
         <TextBox
