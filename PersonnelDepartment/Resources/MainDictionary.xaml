@@ -22,8 +22,17 @@
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Margin" Value="8" />
+        <Setter Property="Foreground" Value="#FF8C8C8C" />
     </Style>
 
+    <Style TargetType="Label">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Margin" Value="8" />
+        <Setter Property="Foreground" Value="#FF8C8C8C" />
+    </Style>
 
     <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Center" />
