@@ -208,7 +208,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\190320.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\MainDictionary.xaml">
       <SubType>Designer</SubType>
