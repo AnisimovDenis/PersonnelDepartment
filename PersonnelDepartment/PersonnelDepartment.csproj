@@ -177,6 +177,9 @@
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Manager\WinManager.xaml.cs">
+      <DependentUpon>WinManager.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -224,6 +227,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Autotification\WinSignIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Manager\WinManager.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
