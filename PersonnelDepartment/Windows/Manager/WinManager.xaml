@@ -19,12 +19,6 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFE2E2E2" />
-        <Image
-            Width="1700"
-            Height="1075"
-            Margin="-381,0,0,0"
-            Opacity="0.5"
-            Source="/Resources/190320.jpg" />
 
         <Grid>
             <Grid.RowDefinitions>
@@ -34,10 +28,15 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Image Width="600" Source="/Resources/logo.png" />
+            <Image
+                Width="400"
+                Margin="70,50"
+                HorizontalAlignment="Left"
+                Source="/Resources/logo.png" />
 
             <Label
                 Grid.Row="1"
+                Margin="24 48 24 24"
                 Content="Главное меню"
                 FontSize="40"
                 Foreground="Black"
@@ -45,12 +44,13 @@
 
             <Label
                 Grid.Row="2"
+                Margin="24"
                 HorizontalAlignment="Center"
                 Content="Доброе утро, Деонис. Еще не умер?"
                 FontSize="30"
                 Foreground="Black" />
 
-            <Grid Grid.Row="3" Margin="75,125">
+            <Grid Grid.Row="3" Margin="75,60,75,100">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -68,7 +68,8 @@
                     BorderThickness="1"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center">
+                    HorizontalTitleAlignment="Center"
+                    TitleFontSize="18">
                     <iconPack:Material
                         Width="100"
                         Height="100"
@@ -85,7 +86,8 @@
                     BorderThickness="1"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center">
+                    HorizontalTitleAlignment="Center"
+                    TitleFontSize="18">
                     <iconPack:Material
                         Width="100"
                         Height="100"
@@ -102,7 +104,8 @@
                     BorderThickness="1"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center">
+                    HorizontalTitleAlignment="Center"
+                    TitleFontSize="18">
                     <iconPack:Material
                         Width="100"
                         Height="100"
@@ -124,7 +127,8 @@
                         BorderThickness="1"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
-                        HorizontalTitleAlignment="Center">
+                        HorizontalTitleAlignment="Center"
+                        TitleFontSize="18">
                         <iconPack:Material
                             Width="100"
                             Height="100"
@@ -141,7 +145,8 @@
                         BorderThickness="1"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
-                        HorizontalTitleAlignment="Center">
+                        HorizontalTitleAlignment="Center"
+                        TitleFontSize="18">
                         <iconPack:Material
                             Width="100"
                             Height="100"
