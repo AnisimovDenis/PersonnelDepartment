@@ -24,5 +24,17 @@ namespace PersonnelDepartment.Windows.Autotification
         {
             InitializeComponent();
         }
+
+        private void ButtonPasswordRecovery_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonBackToSignIn.IsEnabled = true;
+            ButtonPasswordRecovery.IsEnabled = false;
+        }
+
+        private void ButtonBackToSignIn_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonBackToSignIn.IsEnabled = false;
+            ButtonPasswordRecovery.IsEnabled = true;
+        }
     }
 }

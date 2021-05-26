@@ -122,6 +122,7 @@
                         Margin="0,0,8,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
+                        Click="ButtonPasswordRecovery_Click"
                         Content="Восстановить пароль"
                         Foreground="Black"
                         Style="{DynamicResource ButtonTransparent}" />
@@ -236,7 +237,7 @@
                     x:Name="ButtonBackToSignIn"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Style="{DynamicResource ButtonTransparent}">
+                    Style="{DynamicResource ButtonTransparent}" Click="ButtonBackToSignIn_Click">
                     <iconPacks:Material Kind="ArrowLeft" />
                 </Button>
 
