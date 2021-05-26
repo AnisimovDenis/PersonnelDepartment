@@ -7,7 +7,6 @@
     xmlns:local="clr-namespace:PersonnelDepartment.Windows.Autotification"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="clr-namespace:PersonnelDepartment.Views.SignIn"
     Title="Авторизация"
     Width="900"
     Height="630"
@@ -15,12 +14,66 @@
     mah:ShowTitleBar="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <mah:MetroWindow.Resources>
+        <Storyboard x:Key="StoryboardOpenPasswordRecovery">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="348" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="348" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardBackToSignIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="348" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="348" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </mah:MetroWindow.Resources>
+    <mah:MetroWindow.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonPasswordRecovery">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardOpenPasswordRecovery}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonBackToSignIn">
+            <BeginStoryboard x:Name="StoryboardBackToSignIn_BeginStoryboard" Storyboard="{StaticResource StoryboardBackToSignIn}" />
+        </EventTrigger>
+    </mah:MetroWindow.Triggers>
     <Grid>
         <Image Source="/Resources/Background.jpg" />
         <Rectangle Fill="Black" Opacity="0.05" />
 
         <Grid Margin="275,100" ClipToBounds="True">
-            <Grid x:Name="GridSignIn">
+            <Grid x:Name="GridSignIn" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Grid.RenderTransform>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition />
@@ -150,7 +203,18 @@
                     <iconPacks:Material Kind="Check" />
                 </Button>
             </Grid>
-            <Grid x:Name="GridPasswordRecovery" Margin="-348,0,348,0">
+            <Grid
+                x:Name="GridPasswordRecovery"
+                Margin="-348,0,348,0"
+                RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Grid.RenderTransform>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition />
