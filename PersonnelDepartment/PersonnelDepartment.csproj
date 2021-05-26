@@ -165,15 +165,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\SignIn\CaptchaView.xaml.cs">
-      <DependentUpon>CaptchaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SignIn\PasswordRecoveryView.xaml.cs">
-      <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SignIn\SignInView.xaml.cs">
-      <DependentUpon>SignInView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
     </Compile>
@@ -213,18 +204,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SignIn\CaptchaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SignIn\PasswordRecoveryView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SignIn\SignInView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\Autotification\WinSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -242,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\logo_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
