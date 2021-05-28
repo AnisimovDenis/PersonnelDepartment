@@ -20,8 +20,6 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFE2E2E2" />
 
-
-
         <Grid ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -29,8 +27,6 @@
                 <RowDefinition Height="95" />
                 <RowDefinition />
             </Grid.RowDefinitions>
-
-
 
             <Image
                 Grid.RowSpan="4"
@@ -74,6 +70,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
+
                 <mah:Tile
                     Title="Список сотрудников"
                     Width="350"
@@ -124,21 +121,23 @@
                         Kind="BookAccount" />
                 </mah:Tile>
 
-                <StackPanel Grid.Row="1" Grid.Column="1"
-                            Orientation="Horizontal"
-                            VerticalAlignment="Center"
-                            HorizontalAlignment="Center">
+                <StackPanel
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
 
                     <mah:Tile
                         Title="FAQ"
                         Width="160"
                         Height="150"
+                        Margin="0,0,15,0"
                         Background="Gray"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
                         HorizontalTitleAlignment="Center"
-                        TitleFontSize="18"
-                        Margin="0 0 15 0">
+                        TitleFontSize="18">
                         <iconPack:Material
                             Width="75"
                             Height="75"
@@ -150,12 +149,12 @@
                         Grid.Column="1"
                         Width="160"
                         Height="150"
+                        Margin="15,0,0,0"
                         Background="Gray"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
                         HorizontalTitleAlignment="Center"
-                        TitleFontSize="18"
-                        Margin="15 0 0 0">
+                        TitleFontSize="18">
                         <iconPack:Material
                             Width="75"
                             Height="75"
