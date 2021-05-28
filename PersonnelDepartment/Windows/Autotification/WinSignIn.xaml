@@ -3,10 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:PersonnelDepartment.Windows.Autotification"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:view="clr-namespace:PersonnelDepartment.Views.SignIn"
     Title="Авторизация"
     Width="900"
     Height="630"
@@ -14,14 +14,261 @@
     mah:ShowTitleBar="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <mah:MetroWindow.Resources>
+        <Storyboard x:Key="StoryboardOpenPasswordRecovery">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="348" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="348" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="StoryboardBackToSignIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridPasswordRecovery" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="348" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="GridSignIn" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="0" Value="348" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </mah:MetroWindow.Resources>
+    <mah:MetroWindow.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonPasswordRecovery">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardOpenPasswordRecovery}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonBackToSignIn">
+            <BeginStoryboard x:Name="StoryboardBackToSignIn_BeginStoryboard" Storyboard="{StaticResource StoryboardBackToSignIn}" />
+        </EventTrigger>
+    </mah:MetroWindow.Triggers>
     <Grid>
         <Image Source="/Resources/Background.jpg" />
         <Rectangle Fill="Black" Opacity="0.05" />
 
-        <Grid Margin="275,100">
-            <view:SignInView />
-            <view:PasswordRecoveryView Visibility="Hidden" />
-            <view:CaptchaView Visibility="Hidden" />
+        <Grid Margin="275,100" ClipToBounds="True">
+            <Grid x:Name="GridSignIn" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="0.75*" />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Rectangle
+                    Grid.RowSpan="6"
+                    Fill="White"
+                    Opacity="0.85" />
+
+                <Image
+                    Width="200"
+                    Margin="8,24,8,8"
+                    Source="/Resources/logo.png" />
+
+                <Label
+                    Grid.Row="1"
+                    Content="Авторизация"
+                    Style="{DynamicResource LabelHeadline}" />
+
+                <TextBox
+                    Grid.Row="2"
+                    Margin="24,8,24,16"
+                    mah:ControlsHelper.CornerRadius="5"
+                    mah:TextBoxHelper.Watermark="Логин"
+                    Background="Transparent" />
+
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <PasswordBox
+                        Margin="24,0,24,8"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Пароль"
+                        Background="Transparent" />
+
+                    <Button
+                        x:Name="ButtonPasswordRecovery"
+                        Grid.Row="1"
+                        Margin="0,0,8,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Click="ButtonPasswordRecovery_Click"
+                        Content="Восстановить пароль"
+                        Foreground="Black"
+                        Style="{DynamicResource ButtonTransparent}" />
+                </Grid>
+
+
+
+                <Button
+                    Grid.Row="5"
+                    Margin="8,8,8,24"
+                    mah:ControlsHelper.CornerRadius="5"
+                    Content="Войти" />
+            </Grid>
+            <Grid x:Name="grid" Margin="0,401,0,-401">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Rectangle
+                    Grid.RowSpan="6"
+                    Fill="White"
+                    Opacity="0.85" />
+
+                <Image
+                    Width="200"
+                    Margin="8,24,8,8"
+                    Source="/Resources/logo.png" />
+
+                <Label
+                    Grid.Row="1"
+                    Content="Капча"
+                    Style="{DynamicResource LabelHeadline}" />
+
+                <Rectangle
+                    Grid.Row="2"
+                    Height="28"
+                    Margin="40,8,40,8"
+                    VerticalAlignment="Center"
+                    RadiusX="5"
+                    RadiusY="5"
+                    Stroke="#FF3C3C3C" />
+
+                <TextBlock
+                    Grid.Row="2"
+                    Margin="40,8,40,8"
+                    mah:ControlsHelper.CornerRadius="5"
+                    mah:TextBoxHelper.Watermark="Логин"
+                    Background="Transparent"
+                    Style="{DynamicResource TextBlockMain}" />
+
+                <Button
+                    Grid.Row="2"
+                    Margin="42,0"
+                    HorizontalAlignment="Right"
+                    Foreground="{DynamicResource Main}"
+                    Style="{DynamicResource ButtonTransparent}">
+                    <iconPacks:Material Kind="Reload" />
+                </Button>
+
+                <TextBox
+                    Grid.Row="3"
+                    Margin="40,8,40,8"
+                    Padding="0,0,35,0"
+                    VerticalAlignment="Top"
+                    mah:ControlsHelper.CornerRadius="5"
+                    Background="Transparent" />
+
+                <Button
+                    Grid.Row="3"
+                    Margin="42,11"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Foreground="{DynamicResource Main}"
+                    Style="{DynamicResource ButtonTransparent}">
+                    <iconPacks:Material Kind="Check" />
+                </Button>
+            </Grid>
+            <Grid
+                x:Name="GridPasswordRecovery"
+                Margin="-348,0,348,0"
+                RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Rectangle
+                    Grid.RowSpan="6"
+                    Fill="White"
+                    Opacity="0.85" />
+
+                <Image
+                    Width="200"
+                    Margin="8,32,8,0"
+                    Source="/Resources/logo.png" />
+
+                <Button
+                    x:Name="ButtonBackToSignIn"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Style="{DynamicResource ButtonTransparent}" Click="ButtonBackToSignIn_Click">
+                    <iconPacks:Material Kind="ArrowLeft" />
+                </Button>
+
+                <Label
+                    Grid.Row="1"
+                    Margin="8,8,8,25"
+                    Style="{DynamicResource LabelHeadline}">
+                    <TextBlock TextAlignment="Center">
+                        <Run Text="Восстановление" />
+                        <LineBreak />
+                        <Run Text="пароля" />
+                    </TextBlock>
+                </Label>
+
+                <TextBox
+                    Grid.Row="2"
+                    Margin="24,0,24,8"
+                    VerticalAlignment="Top"
+                    mah:ControlsHelper.CornerRadius="5"
+                    mah:TextBoxHelper.Watermark="Почта"
+                    Background="Transparent" />
+
+
+
+                <Button
+                    Grid.Row="3"
+                    Margin="8,0,8,8"
+                    VerticalAlignment="Top"
+                    mah:ControlsHelper.CornerRadius="5"
+                    Content="Восстановить" />
+            </Grid>
         </Grid>
     </Grid>
 </mah:MetroWindow>
