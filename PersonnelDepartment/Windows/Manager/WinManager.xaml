@@ -20,37 +20,52 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFE2E2E2" />
 
-        <Grid>
+
+
+        <Grid ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="130" />
+                <RowDefinition Height="95" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+
+
             <Image
-                Width="400"
-                Margin="70,50"
-                HorizontalAlignment="Left"
+                Grid.RowSpan="4"
+                Height="1200"
+                Opacity="1"
+                Source="/Resources/WnpJjXT9sIY.jpg" />
+
+            <Border
+                Grid.RowSpan="4"
+                Margin="40"
+                Background="White"
+                BorderBrush="#FF3C3C3C"
+                BorderThickness="1"
+                Opacity="0.6" />
+
+            <Image
+                Width="350"
+                Margin="70,90,70,10"
                 Source="/Resources/logo.png" />
 
             <Label
                 Grid.Row="1"
-                Margin="24 48 24 24"
+                Margin="24,48,24,24"
                 Content="Главное меню"
-                FontSize="40"
-                Foreground="Black"
+                FontSize="35"
                 Style="{DynamicResource LabelHeadline}" />
 
             <Label
                 Grid.Row="2"
                 Margin="24"
                 HorizontalAlignment="Center"
-                Content="Доброе утро, Деонис. Еще не умер?"
-                FontSize="30"
-                Foreground="Black" />
+                Content="Доброе утро, Деонис!"
+                FontSize="25" />
 
-            <Grid Grid.Row="3" Margin="75,60,75,100">
+            <Grid Grid.Row="3" Margin="95,60,95,150">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
@@ -61,98 +76,92 @@
                 </Grid.ColumnDefinitions>
                 <mah:Tile
                     Title="Список сотрудников"
-                    Width="375"
-                    Height="175"
-                    Background="{DynamicResource Main}"
-                    BorderBrush="{DynamicResource BorderBrush}"
-                    BorderThickness="1"
+                    Width="350"
+                    Height="150"
+                    Background="#0079C2"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
                     HorizontalTitleAlignment="Center"
+                    Opacity="0.9"
                     TitleFontSize="18">
                     <iconPack:Material
-                        Width="100"
-                        Height="100"
+                        Width="75"
+                        Height="75"
                         Kind="HumanGreeting" />
                 </mah:Tile>
 
                 <mah:Tile
                     Title="Список соискателей"
                     Grid.Column="1"
-                    Width="375"
-                    Height="175"
+                    Width="350"
+                    Height="150"
                     Background="{DynamicResource Main}"
-                    BorderBrush="{DynamicResource BorderBrush}"
-                    BorderThickness="1"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
                     HorizontalTitleAlignment="Center"
+                    Opacity="0.9"
                     TitleFontSize="18">
                     <iconPack:Material
-                        Width="100"
-                        Height="100"
+                        Width="75"
+                        Height="75"
                         Kind="ReorderHorizontal" />
                 </mah:Tile>
 
                 <mah:Tile
                     Title="Список работ"
                     Grid.Row="1"
-                    Width="375"
-                    Height="175"
+                    Width="350"
+                    Height="150"
                     Background="{DynamicResource Main}"
-                    BorderBrush="{DynamicResource BorderBrush}"
-                    BorderThickness="1"
                     CountFontSize="100"
                     FontFamily="Century Gothic"
                     HorizontalTitleAlignment="Center"
+                    Opacity="0.9"
                     TitleFontSize="18">
                     <iconPack:Material
-                        Width="100"
-                        Height="100"
+                        Width="57"
+                        Height="75"
                         Kind="BookAccount" />
                 </mah:Tile>
 
-                <Grid Grid.Row="1" Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+                <StackPanel Grid.Row="1" Grid.Column="1"
+                            Orientation="Horizontal"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
 
                     <mah:Tile
                         Title="FAQ"
-                        Width="175"
-                        Height="175"
+                        Width="160"
+                        Height="150"
                         Background="Gray"
-                        BorderBrush="{DynamicResource BorderBrush}"
-                        BorderThickness="1"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
                         HorizontalTitleAlignment="Center"
-                        TitleFontSize="18">
+                        TitleFontSize="18"
+                        Margin="0 0 15 0">
                         <iconPack:Material
-                            Width="100"
-                            Height="100"
+                            Width="75"
+                            Height="75"
                             Kind="FrequentlyAskedQuestions" />
                     </mah:Tile>
 
                     <mah:Tile
                         Title="Выход"
                         Grid.Column="1"
-                        Width="175"
-                        Height="175"
+                        Width="160"
+                        Height="150"
                         Background="Gray"
-                        BorderBrush="{DynamicResource BorderBrush}"
-                        BorderThickness="1"
                         CountFontSize="100"
                         FontFamily="Century Gothic"
                         HorizontalTitleAlignment="Center"
-                        TitleFontSize="18">
+                        TitleFontSize="18"
+                        Margin="15 0 0 0">
                         <iconPack:Material
-                            Width="100"
-                            Height="100"
+                            Width="75"
+                            Height="75"
                             Kind="ExitToApp" />
                     </mah:Tile>
-                </Grid>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

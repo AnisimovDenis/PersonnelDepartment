@@ -225,5 +225,11 @@
   <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\190320.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WnpJjXT9sIY.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
