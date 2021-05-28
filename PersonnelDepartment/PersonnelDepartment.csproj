@@ -168,6 +168,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\Manager\EmployeeListView.xaml.cs">
+      <DependentUpon>EmployeeListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Manager\EmployeeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Autotification\WinSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,14 +232,9 @@
   <ItemGroup>
     <Resource Include="Resources\logo_white.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\190320.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\WnpJjXT9sIY.jpg" />
+    <Resource Include="Resources\BackgroundMainMenu.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
