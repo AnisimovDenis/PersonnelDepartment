@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
     xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:PersonnelDepartment.Windows.Manager"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
@@ -71,55 +72,118 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <mah:Tile
-                    Title="Список сотрудников"
+                <Button
                     Width="350"
                     Height="150"
+                    fw:PointerTracker.Enabled="True"
+                    fw:RevealElement.MouseOverBackground="#FF007DC9"
                     Background="#0079C2"
-                    CountFontSize="100"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
                     Opacity="0.9"
-                    TitleFontSize="18">
-                    <iconPack:Material
-                        Width="75"
-                        Height="75"
-                        Kind="HumanGreeting" />
-                </mah:Tile>
+                    Style="{DynamicResource ButtonRevealStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Margin="0"
+                            Padding="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White">
+                            <iconPack:Material
+                                Width="75"
+                                Height="75"
+                                Kind="HumanGreeting" />
+                        </Label>
 
-                <mah:Tile
-                    Title="Список соискателей"
+                        <Label
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="Сотрудники"
+                            Foreground="White" />
+                    </Grid>
+                </Button>
+
+                <Button
                     Grid.Column="1"
                     Width="350"
                     Height="150"
-                    Background="{DynamicResource Main}"
-                    CountFontSize="100"
+                    fw:PointerTracker.Enabled="True"
+                    fw:RevealElement.MouseOverBackground="#FF007DC9"
+                    Background="#0079C2"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
                     Opacity="0.9"
-                    TitleFontSize="18">
-                    <iconPack:Material
-                        Width="75"
-                        Height="75"
-                        Kind="ReorderHorizontal" />
-                </mah:Tile>
+                    Style="{DynamicResource ButtonRevealStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Margin="0"
+                            Padding="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White">
+                            <iconPack:Material
+                                Width="75"
+                                Height="75"
+                                Kind="Account" />
+                        </Label>
 
-                <mah:Tile
-                    Title="Список работ"
+                        <Label
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="Соискатели"
+                            Foreground="White" />
+                    </Grid>
+                </Button>
+
+                <Button
                     Grid.Row="1"
                     Width="350"
                     Height="150"
-                    Background="{DynamicResource Main}"
-                    CountFontSize="100"
+                    fw:PointerTracker.Enabled="True"
+                    fw:RevealElement.MouseOverBackground="#FF007DC9"
+                    Background="#0079C2"
                     FontFamily="Century Gothic"
-                    HorizontalTitleAlignment="Center"
+                    FontSize="18"
+                    Foreground="White"
                     Opacity="0.9"
-                    TitleFontSize="18">
-                    <iconPack:Material
-                        Width="57"
-                        Height="75"
-                        Kind="BookAccount" />
-                </mah:Tile>
+                    Style="{DynamicResource ButtonRevealStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Margin="0"
+                            Padding="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="White">
+                            <iconPack:Material
+                                Width="75"
+                                Height="75"
+                                Kind="Paperclip" />
+                        </Label>
+
+                        <Label
+                            Grid.Row="1"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Content="Работы"
+                            Foreground="White" />
+                    </Grid>
+                </Button>
 
                 <StackPanel
                     Grid.Row="1"
@@ -128,38 +192,82 @@
                     VerticalAlignment="Center"
                     Orientation="Horizontal">
 
-                    <mah:Tile
-                        Title="FAQ"
+                    <Button
                         Width="160"
                         Height="150"
-                        Margin="0,0,15,0"
+                        Margin="0,0,16,0"
+                        fw:PointerTracker.Enabled="True"
+                        fw:RevealElement.MouseOverBackground="DimGray"
                         Background="Gray"
-                        CountFontSize="100"
                         FontFamily="Century Gothic"
-                        HorizontalTitleAlignment="Center"
-                        TitleFontSize="18">
-                        <iconPack:Material
-                            Width="75"
-                            Height="75"
-                            Kind="FrequentlyAskedQuestions" />
-                    </mah:Tile>
+                        FontSize="18"
+                        Foreground="White"
+                        Opacity="0.9"
+                        Style="{DynamicResource ButtonRevealStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Margin="0"
+                                Padding="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White">
+                                <iconPack:Material
+                                    Width="75"
+                                    Height="75"
+                                    Kind="FrequentlyAskedQuestions" />
+                            </Label>
 
-                    <mah:Tile
-                        Title="Выход"
-                        Grid.Column="1"
+                            <Label
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="FAQ"
+                                Foreground="White" />
+                        </Grid>
+                    </Button>
+
+                    <Button
+                        Grid.Row="1"
                         Width="160"
                         Height="150"
                         Margin="15,0,0,0"
+                        fw:PointerTracker.Enabled="True"
+                        fw:RevealElement.MouseOverBackground="DimGray"
                         Background="Gray"
-                        CountFontSize="100"
                         FontFamily="Century Gothic"
-                        HorizontalTitleAlignment="Center"
-                        TitleFontSize="18">
-                        <iconPack:Material
-                            Width="75"
-                            Height="75"
-                            Kind="ExitToApp" />
-                    </mah:Tile>
+                        FontSize="18"
+                        Foreground="White"
+                        Opacity="0.9"
+                        Style="{DynamicResource ButtonRevealStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Margin="0"
+                                Padding="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="White">
+                                <iconPack:Material
+                                    Width="75"
+                                    Height="75"
+                                    Kind="ExitToApp" />
+                            </Label>
+
+                            <Label
+                                Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Content="Выйти"
+                                Foreground="White" />
+                        </Grid>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Grid>

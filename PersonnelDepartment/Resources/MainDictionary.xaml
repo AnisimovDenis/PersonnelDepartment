@@ -9,6 +9,8 @@
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
         <!--  Theme setting  -->
         <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Themes/Light.Blue.xaml" />
+        <!--  FluentWPF Controls  -->
+        <ResourceDictionary Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <SolidColorBrush x:Key="Main" Color="#0079C2" />
