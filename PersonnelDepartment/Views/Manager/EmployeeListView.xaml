@@ -4,9 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PersonnelDepartment.Views.Manager"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="1080"
-    d:DesignWidth="1920"
+    d:DesignHeight="750"
+    d:DesignWidth="1080"
     mc:Ignorable="d">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -21,7 +22,56 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Image Source="/Resources/logo.png" />
+            <Image
+                Width="200"
+                Margin="24,16"
+                Source="/Resources/logo.png" />
+
+            <Label
+                Grid.ColumnSpan="2"
+                Content="Список сотрудников"
+                Style="{DynamicResource LabelHeadline}" />
         </Grid>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button Content="Добавить" />
+
+            <ComboBox
+                Width="250"
+                mah:ControlsHelper.CornerRadius="5"
+                mah:TextBoxHelper.Watermark="Отдел" />
+            <TextBox
+                Width="250"
+                mah:ControlsHelper.CornerRadius="5"
+                mah:TextBoxHelper.Watermark="Поиск по фамилии" />
+        </StackPanel>
+
+        <ListView Grid.Row="2">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Margin="50" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="150" Height="150">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Label Content="{Binding Login}" />
+                        <Label Grid.Row="1" Content="{Binding Password}" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+            <ListViewItem />
+            <ListViewItem />
+        </ListView>
     </Grid>
 </UserControl>

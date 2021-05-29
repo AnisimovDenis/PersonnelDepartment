@@ -277,5 +277,7 @@
                 </StackPanel>
             </Grid>
         </Grid>
+
+        <views:EmployeeListView Grid.ColumnSpan="2"/>
     </Grid>
 </mah:MetroWindow>
