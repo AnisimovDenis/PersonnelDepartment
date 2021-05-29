@@ -33,7 +33,7 @@ namespace PersonnelDepartment.Data
         public int IdDepartment { get; set; }
         public int IdPosition { get; set; }
         public decimal Salary { get; set; }
-        public int IdUser { get; set; }
+        public Nullable<int> IdUser { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Department Department { get; set; }

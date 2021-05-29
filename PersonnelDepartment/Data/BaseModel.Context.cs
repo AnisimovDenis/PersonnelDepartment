@@ -13,10 +13,10 @@ namespace PersonnelDepartment.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PersonnelDepartmentEntities : DbContext
+    public partial class BaseContext : DbContext
     {
-        public PersonnelDepartmentEntities()
-            : base("name=PersonnelDepartmentEntities")
+        public BaseContext()
+            : base("name=BaseContext")
         {
         }
     

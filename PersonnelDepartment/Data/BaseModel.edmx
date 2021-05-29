@@ -60,15 +60,15 @@
           <Property Name="IdPassportDate" Type="int" Nullable="false" />
           <Property Name="SNILS" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="INN" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="Education" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="MilitaryId" Type="bit" Nullable="false" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="varbinary(max)" Nullable="false" />
+          <Property Name="MedicalСertificate" Type="varbinary(max)" />
           <Property Name="IdDepartment" Type="int" Nullable="false" />
           <Property Name="IdPosition" Type="int" Nullable="false" />
           <Property Name="Salary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="IdUser" Type="int" Nullable="false" />
+          <Property Name="IdUser" Type="int" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -227,7 +227,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -373,15 +373,15 @@
           <Property Name="IdPassportDate" Type="Int32" Nullable="false" />
           <Property Name="SNILS" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="INN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Education" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MilitaryId" Type="Boolean" Nullable="false" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="MedicalСertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdDepartment" Type="Int32" Nullable="false" />
           <Property Name="IdPosition" Type="Int32" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="IdUser" Type="Int32" Nullable="false" />
+          <Property Name="IdUser" Type="Int32" />
           <NavigationProperty Name="Address" Relationship="Self.FK_Employee_Address" FromRole="Employee" ToRole="Address" />
           <NavigationProperty Name="Department" Relationship="Self.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
@@ -555,7 +555,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Employee_User">
-          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -578,7 +578,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PersonnelDepartmentEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BaseContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Applicant" EntityType="Self.Applicant" />
           <EntitySet Name="Department" EntityType="Self.Department" />
@@ -639,7 +639,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PersonnelDepartmentModelStoreContainer" CdmEntityContainer="PersonnelDepartmentEntities">
+        <EntityContainerMapping StorageEntityContainer="PersonnelDepartmentModelStoreContainer" CdmEntityContainer="BaseContext">
           <EntitySetMapping Name="Address">
             <EntityTypeMapping TypeName="PersonnelDepartmentModel.Address">
               <MappingFragment StoreEntitySet="Address">
