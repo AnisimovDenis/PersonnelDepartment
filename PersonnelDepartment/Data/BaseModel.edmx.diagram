@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="630d92db1f5b401385234f0d0d49bdc0" Name="Diagram1">
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Address" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Applicant" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Department" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Employee" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Gender" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.PassportData" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Position" Width="1.5" PointX="3.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.Role" Width="1.5" PointX="1.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PersonnelDepartmentModel.User" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Applicant_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Applicant_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Applicant_PassportData" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Applicant_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_PassportData" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_Employee_User" ManuallyRouted="false" />
+        <AssociationConnector Association="PersonnelDepartmentModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
