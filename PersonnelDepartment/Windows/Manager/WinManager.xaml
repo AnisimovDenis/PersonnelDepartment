@@ -79,6 +79,7 @@
                     fw:PointerTracker.Enabled="True"
                     fw:RevealElement.MouseOverBackground="#FF007DC9"
                     Background="#0079C2"
+                    Click="OpenEmployeeList"
                     FontFamily="Century Gothic"
                     FontSize="18"
                     Foreground="White"
@@ -278,6 +279,9 @@
             </Grid>
         </Grid>
 
-        <views:EmployeeListView Grid.ColumnSpan="2"/>
+        <views:EmployeeListView
+            x:Name="EmployeeListView"
+            Grid.ColumnSpan="2"
+            Visibility="Collapsed" />
     </Grid>
 </mah:MetroWindow>

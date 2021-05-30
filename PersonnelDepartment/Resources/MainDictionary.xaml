@@ -36,6 +36,12 @@
         <Setter Property="Foreground" Value="#FF8C8C8C" />
     </Style>
 
+    <Style TargetType="ContextMenu">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Foreground" Value="#FF8C8C8C" />
+    </Style>
+
     <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />

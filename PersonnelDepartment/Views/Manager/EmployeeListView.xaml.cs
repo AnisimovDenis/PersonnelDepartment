@@ -32,5 +32,15 @@ namespace PersonnelDepartment.Views.Manager
         {
             
         }
+
+        private void InfoEmployee(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show((LvItems.SelectedItem as Employee).Id.ToString());
+        }
+
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
     }
 }

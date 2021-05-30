@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
     xmlns:local="clr-namespace:PersonnelDepartment.Views.Manager"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -23,20 +24,33 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <Rectangle Grid.ColumnSpan="2" Fill="{DynamicResource Main}" />
+
             <Image
                 Width="200"
                 Margin="24,16"
-                Source="/Resources/logo.png" />
+                Source="/Resources/logo_white.png" />
+
+            <Button
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Back"
+                Foreground="White"
+                Style="{DynamicResource ButtonTransparent}">
+                <iconPack:Material Kind="ArrowLeft" />
+            </Button>
 
             <Label
                 Grid.ColumnSpan="2"
                 Content="Список сотрудников"
+                Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
 
         <StackPanel
             Grid.Row="1"
-            HorizontalAlignment="Right"
+            Margin="0,20,20,0"
+            HorizontalAlignment="Center"
             Orientation="Horizontal">
             <Button mah:ControlsHelper.CornerRadius="5" Content="Добавить" />
 
@@ -50,18 +64,23 @@
                 mah:TextBoxHelper.Watermark="Поиск по фамилии" />
         </StackPanel>
 
-        <Border Grid.Row="2"
-                BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
-                Margin="30"
-                CornerRadius="5"/>
+        <Border
+            Grid.Row="2"
+            Margin="30"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="5" />
 
-        <ListView x:Name="LvItems" Grid.Row="2"
-                  Margin="50">
+        <ListView
+            x:Name="LvItems"
+            Grid.Row="2"
+            Margin="50"
+            Background="Transparent">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel VerticalAlignment="Center"
-                               HorizontalAlignment="Center"/>
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               Orientation="Horizontal"
+                               Width="960"/>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
@@ -69,9 +88,17 @@
                 <DataTemplate>
                     <Grid
                         Grid.Column="1"
-                        Width="500"
+                        Width="450"
                         Height="350"
-                        Margin="20">
+                        Margin="10">
+                        <Grid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Click="InfoEmployee" Header="Полная информация" />
+                                <Separator />
+                                <MenuItem Header="Изменить" />
+                                <MenuItem Header="Удалить" />
+                            </ContextMenu>
+                        </Grid.ContextMenu>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto" />
                             <RowDefinition Height="*" />
@@ -79,9 +106,10 @@
 
                         <Border
                             Grid.RowSpan="2"
+                            Background="White"
                             BorderBrush="{DynamicResource BorderBrush}"
                             BorderThickness="1"
-                            CornerRadius="10" />
+                            CornerRadius="5" />
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
