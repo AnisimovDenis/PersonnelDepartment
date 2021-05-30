@@ -98,6 +98,7 @@
                     Style="{DynamicResource LabelHeadline}" />
 
                 <TextBox
+                    x:Name="TbLogin"
                     Grid.Row="2"
                     Margin="24,8,24,16"
                     mah:ControlsHelper.CornerRadius="5"
@@ -111,6 +112,7 @@
                     </Grid.RowDefinitions>
 
                     <PasswordBox
+                        x:Name="PbPassword"
                         Margin="24,0,24,8"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Пароль"
@@ -123,7 +125,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Top"
                         Click="ButtonPasswordRecovery_Click"
-                        Content="Восстановить пароль"
+                        Content="Восстановить логин/пароль"
                         Foreground="Black"
                         Style="{DynamicResource ButtonTransparent}" />
                 </Grid>
@@ -134,9 +136,13 @@
                     Grid.Row="5"
                     Margin="8,8,8,24"
                     mah:ControlsHelper.CornerRadius="5"
+                    Click="SignIn"
                     Content="Войти" />
             </Grid>
-            <Grid x:Name="grid" Margin="0,401,0,-401">
+            <Grid
+                x:Name="GridCaptcha"
+                Margin="0"
+                Visibility="Collapsed">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                     <RowDefinition />
@@ -162,7 +168,7 @@
 
                 <Rectangle
                     Grid.Row="2"
-                    Height="28"
+                    Height="40"
                     Margin="40,8,40,8"
                     VerticalAlignment="Center"
                     RadiusX="5"
@@ -170,35 +176,45 @@
                     Stroke="#FF3C3C3C" />
 
                 <TextBlock
+                    x:Name="TbCaptcha"
                     Grid.Row="2"
                     Margin="40,8,40,8"
                     mah:ControlsHelper.CornerRadius="5"
-                    mah:TextBoxHelper.Watermark="Логин"
                     Background="Transparent"
-                    Style="{DynamicResource TextBlockMain}" />
+                    FontSize="22"
+                    Style="{DynamicResource TextBlockMain}"
+                    TextAlignment="Center">
+                    <TextBlock.Effect>
+                        <BlurEffect Radius="4" />
+                    </TextBlock.Effect>
+                </TextBlock>
 
                 <Button
                     Grid.Row="2"
                     Margin="42,0"
                     HorizontalAlignment="Right"
+                    Click="ReCaptcha"
                     Foreground="{DynamicResource Main}"
                     Style="{DynamicResource ButtonTransparent}">
                     <iconPacks:Material Kind="Reload" />
                 </Button>
 
                 <TextBox
+                    x:Name="TbCaptchaEnter"
                     Grid.Row="3"
                     Margin="40,8,40,8"
-                    Padding="0,0,35,0"
                     VerticalAlignment="Top"
                     mah:ControlsHelper.CornerRadius="5"
-                    Background="Transparent" />
+                    Background="Transparent"
+                    MaxLength="5"
+                    TextAlignment="Center" />
 
                 <Button
                     Grid.Row="3"
-                    Margin="42,11"
+                    Margin="42,14"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
+                    Click="EnterCaptcha"
                     Foreground="{DynamicResource Main}"
                     Style="{DynamicResource ButtonTransparent}">
                     <iconPacks:Material Kind="Check" />
@@ -237,7 +253,8 @@
                     x:Name="ButtonBackToSignIn"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Style="{DynamicResource ButtonTransparent}" Click="ButtonBackToSignIn_Click">
+                    Click="ButtonBackToSignIn_Click"
+                    Style="{DynamicResource ButtonTransparent}">
                     <iconPacks:Material Kind="ArrowLeft" />
                 </Button>
 
@@ -253,6 +270,7 @@
                 </Label>
 
                 <TextBox
+                    x:Name="TbEmail"
                     Grid.Row="2"
                     Margin="24,0,24,8"
                     VerticalAlignment="Top"
@@ -260,9 +278,8 @@
                     mah:TextBoxHelper.Watermark="Почта"
                     Background="Transparent" />
 
-
-
                 <Button
+                    Click="RecoveryPassword"
                     Grid.Row="3"
                     Margin="8,0,8,8"
                     VerticalAlignment="Top"
