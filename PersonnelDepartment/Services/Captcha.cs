@@ -16,7 +16,7 @@ namespace PersonnelDepartment.Services
         /// </summary>
         /// <param name="lenght">Длина строки</param>
         /// <returns>Строка</returns>
-        public static string Rand(int lenght)
+        public static string GenerateString(int lenght)
         {
             string cif = "qwertyuiopasdfghjklzxcvbnm1234567890" +
                 "QWERTYUIOPASDFGHJKLZXCVBNM";

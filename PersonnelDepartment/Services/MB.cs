@@ -39,7 +39,7 @@ namespace PersonnelDepartment.Services
         /// <returns></returns>
         public static bool MessageBoxQuestion(string question)
         {
-            return MessageBoxResult.Yes == MessageBox.Show(question, "Ошибка",
+            return MessageBoxResult.Yes == MessageBox.Show(question, "Уведомление",
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
     }

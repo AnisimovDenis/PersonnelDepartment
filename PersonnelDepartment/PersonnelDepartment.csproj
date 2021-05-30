@@ -222,6 +222,7 @@
     <Compile Include="Data\User.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
     <Compile Include="Views\Manager\EmployeeListView.xaml.cs">
       <DependentUpon>EmployeeListView.xaml</DependentUpon>
