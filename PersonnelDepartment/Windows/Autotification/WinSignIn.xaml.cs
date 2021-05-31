@@ -104,6 +104,7 @@ namespace PersonnelDepartment.Windows.Autotification
             else if (TbCaptcha.Text == TbCaptchaEnter.Text)
             {
                 TbCaptcha.Text = string.Empty;
+                TbCaptchaEnter.Text = string.Empty;
                 GridSignIn.Visibility = Visibility.Visible;
                 GridCaptcha.Visibility = Visibility.Collapsed;
                 count = 0;
@@ -118,7 +119,12 @@ namespace PersonnelDepartment.Windows.Autotification
         private void RecoveryPassword(object sender, RoutedEventArgs e)
         {
             Employee employee = DataService.GetContext().Employee.FirstOrDefault(emp => emp.Email == TbEmail.Text);
-            if (employee.User == null)
+            if (string.IsNullOrWhiteSpace(TbEmail.Text))
+            {
+                MB.MessageBoxInfo("Введите почту");
+                TbEmail.Focus();
+            }
+            else if (employee.User == null)
             {
                 MB.MessageBoxInfo("Пользователя с данной почтой не существует");
             }
