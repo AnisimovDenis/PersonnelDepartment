@@ -70,5 +70,10 @@ namespace PersonnelDepartment.Views.Manager
                 MB.MessageBoxInfo("Вы успешно удалили сотрудника");
             }
         }
+
+        private void OpenAddEmployee(object sender, RoutedEventArgs e)
+        {
+            EmployeeAddView.Visibility = Visibility.Visible;
+        }
     }
 }

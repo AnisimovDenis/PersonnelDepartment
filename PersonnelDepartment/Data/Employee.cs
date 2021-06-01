@@ -22,7 +22,6 @@ namespace PersonnelDepartment.Data
         public int IdAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public int IdPassportDate { get; set; }
         public string SNILS { get; set; }
         public string INN { get; set; }
         public byte[] Photo { get; set; }
@@ -34,11 +33,12 @@ namespace PersonnelDepartment.Data
         public int IdPosition { get; set; }
         public decimal Salary { get; set; }
         public Nullable<int> IdUser { get; set; }
+        public string PassportSeries { get; set; }
+        public string PassportNumber { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Department Department { get; set; }
         public virtual Gender Gender { get; set; }
-        public virtual PassportData PassportData { get; set; }
         public virtual Position Position { get; set; }
         public virtual User User { get; set; }
     }

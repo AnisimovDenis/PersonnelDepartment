@@ -7,6 +7,7 @@
     xmlns:local="clr-namespace:PersonnelDepartment.Views.Manager"
     xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:PersonnelDepartment.Views.Manager"
     d:DesignHeight="750"
     d:DesignWidth="1080"
     IsVisibleChanged="UserControl_IsVisibleChanged"
@@ -52,22 +53,25 @@
             Margin="0,20,20,0"
             HorizontalAlignment="Center"
             Orientation="Horizontal">
-            <Button mah:ControlsHelper.CornerRadius="5" Content="Добавить" />
+            <Button
+                mah:ControlsHelper.CornerRadius="5"
+                Click="OpenAddEmployee"
+                Content="Добавить" />
 
             <ComboBox
                 x:Name="CbDepartments"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Отдел" 
-                SelectionChanged="Filter"
+                mah:TextBoxHelper.Watermark="Отдел"
+                DisplayMemberPath="Name"
                 SelectedItem="{Binding Department}"
-                DisplayMemberPath="Name"/>
+                SelectionChanged="Filter" />
             <TextBox
                 x:Name="TbSearch"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
                 mah:TextBoxHelper.Watermark="Поиск по фамилии"
-                TextChanged="Searching"/>
+                TextChanged="Searching" />
         </StackPanel>
 
         <Border
@@ -84,9 +88,11 @@
             Background="Transparent">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
-                               Orientation="Horizontal"
-                               Width="960"/>
+                    <WrapPanel
+                        Width="960"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
@@ -102,8 +108,7 @@
                                 <MenuItem Click="InfoEmployee" Header="Полная информация" />
                                 <Separator />
                                 <MenuItem Header="Изменить" />
-                                <MenuItem Header="Удалить" 
-                                          Click="Delete"/>
+                                <MenuItem Click="Delete" Header="Удалить" />
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <Grid.RowDefinitions>
@@ -190,5 +195,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <views:EmployeeAddView x:Name="EmployeeAddView" Visibility="Collapsed" 
+                               Grid.RowSpan="3"/>
     </Grid>
 </UserControl>

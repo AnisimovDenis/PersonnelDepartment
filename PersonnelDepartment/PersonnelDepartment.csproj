@@ -207,9 +207,6 @@
     <Compile Include="Data\Gender.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PassportData.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\Position.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
@@ -224,6 +221,9 @@
     </Compile>
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
+    <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
+      <DependentUpon>EmployeeAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\EmployeeListView.xaml.cs">
       <DependentUpon>EmployeeListView.xaml</DependentUpon>
     </Compile>
@@ -270,6 +270,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\EmployeeAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
