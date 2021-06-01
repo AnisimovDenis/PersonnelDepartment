@@ -1,4 +1,5 @@
 ﻿using PersonnelDepartment.Data;
+using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,13 +25,12 @@ namespace PersonnelDepartment.Views.Manager
         public EmployeeListView()
         {
             InitializeComponent();
-
-            LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
         }
 
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            
+            LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+            CbDepartments.ItemsSource = DataService.GetContext().Department.ToList().OrderByDescending(d => d.Name);
         }
 
         private void InfoEmployee(object sender, RoutedEventArgs e)
@@ -41,6 +41,34 @@ namespace PersonnelDepartment.Views.Manager
         private void Back(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
+        }
+
+        private void Searching(object sender, TextChangedEventArgs e)
+        {
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.LastName.StartsWith(TbSearch.Text)).ToList();
+        }
+
+        private void Filter(object sender, SelectionChangedEventArgs e)
+        {
+            var department = CbDepartments.SelectedItem as Department;
+            if (department.Name == "Все")
+                LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+            else
+                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList();
+        }
+
+        private void Delete(object sender, RoutedEventArgs e)
+        {
+            var employee = LvItems.SelectedItem as Employee;
+            if (MB.MessageBoxQuestion($"Вы действительно хотите удалить сотрудника {employee.LastName} {employee.FirstName} {employee.MiddleName}?"))
+            {
+                DataService.GetContext().Employee.Remove(employee);
+                DataService.GetContext().SaveChanges();
+
+                LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+
+                MB.MessageBoxInfo("Вы успешно удалили сотрудника");
+            }
         }
     }
 }

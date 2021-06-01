@@ -55,13 +55,19 @@
             <Button mah:ControlsHelper.CornerRadius="5" Content="Добавить" />
 
             <ComboBox
+                x:Name="CbDepartments"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Отдел" />
+                mah:TextBoxHelper.Watermark="Отдел" 
+                SelectionChanged="Filter"
+                SelectedItem="{Binding Department}"
+                DisplayMemberPath="Name"/>
             <TextBox
+                x:Name="TbSearch"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Поиск по фамилии" />
+                mah:TextBoxHelper.Watermark="Поиск по фамилии"
+                TextChanged="Searching"/>
         </StackPanel>
 
         <Border
@@ -96,7 +102,8 @@
                                 <MenuItem Click="InfoEmployee" Header="Полная информация" />
                                 <Separator />
                                 <MenuItem Header="Изменить" />
-                                <MenuItem Header="Удалить" />
+                                <MenuItem Header="Удалить" 
+                                          Click="Delete"/>
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <Grid.RowDefinitions>
