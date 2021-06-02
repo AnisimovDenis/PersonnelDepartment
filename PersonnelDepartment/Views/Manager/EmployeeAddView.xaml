@@ -215,6 +215,12 @@
                             Padding="0"
                             mah:ControlsHelper.CornerRadius="5"
                             Click="AddAddress">
+                            <Button.ToolTip>
+                                <Label
+                                    Margin="0"
+                                    Content="Добавить должность"
+                                    FontSize="16" />
+                            </Button.ToolTip>
                             <iconPack:Material Kind="Plus" />
                         </Button>
                     </Grid>
@@ -264,6 +270,12 @@
                             Padding="0"
                             mah:ControlsHelper.CornerRadius="5"
                             Click="AddPosition">
+                            <Button.ToolTip>
+                                <Label
+                                    Margin="0"
+                                    Content="Добавить должность"
+                                    FontSize="16" />
+                            </Button.ToolTip>
                             <iconPack:Material Kind="Plus" />
                         </Button>
                     </Grid>
