@@ -262,7 +262,8 @@
                             Width="30"
                             Height="30"
                             Padding="0"
-                            mah:ControlsHelper.CornerRadius="5">
+                            mah:ControlsHelper.CornerRadius="5"
+                            Click="AddPosition">
                             <iconPack:Material Kind="Plus" />
                         </Button>
                     </Grid>

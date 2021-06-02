@@ -233,6 +233,9 @@
     <Compile Include="Windows\Additionally\WinAddAddress.xaml.cs">
       <DependentUpon>WinAddAddress.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Additionally\WinAddPosition.xaml.cs">
+      <DependentUpon>WinAddPosition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
     </Compile>
@@ -288,6 +291,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Additionally\WinAddAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Additionally\WinAddPosition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

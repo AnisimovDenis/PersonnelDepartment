@@ -234,5 +234,12 @@ namespace PersonnelDepartment.Views.Manager
 
             CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
         }
+
+        private void AddPosition(object sender, RoutedEventArgs e)
+        {
+            new WinAddPosition().ShowDialog();
+
+            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
+        }
     }
 }
