@@ -218,7 +218,7 @@
                             <Button.ToolTip>
                                 <Label
                                     Margin="0"
-                                    Content="Добавить должность"
+                                    Content="Добавить адрес"
                                     FontSize="16" />
                             </Button.ToolTip>
                             <iconPack:Material Kind="Plus" />
