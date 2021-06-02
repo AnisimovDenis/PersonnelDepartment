@@ -1,5 +1,6 @@
 ﻿using PersonnelDepartment.Data;
 using PersonnelDepartment.Services;
+using PersonnelDepartment.Windows.Additionally;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -225,6 +226,13 @@ namespace PersonnelDepartment.Views.Manager
                 employee.MedicalСertificate = File.ReadAllBytes(filename);
                 flagMC = true;
             }
+        }
+
+        private void AddAddress(object sender, RoutedEventArgs e)
+        {
+            new WinAddAddress().ShowDialog();
+
+            CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
         }
     }
 }
