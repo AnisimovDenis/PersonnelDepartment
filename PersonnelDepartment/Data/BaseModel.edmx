@@ -64,7 +64,7 @@
           <Property Name="INN" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="Education" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="MilitaryId" Type="bit" Nullable="false" />
+          <Property Name="MilitaryId" Type="varbinary(max)" />
           <Property Name="IdGender" Type="int" Nullable="false" />
           <Property Name="MedicalСertificate" Type="varbinary(max)" />
           <Property Name="IdDepartment" Type="int" Nullable="false" />
@@ -334,7 +334,7 @@
           <Property Name="INN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Education" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MilitaryId" Type="Boolean" Nullable="false" />
+          <Property Name="MilitaryId" Type="Binary" Nullable="true" MaxLength="Max" FixedLength="false" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
           <Property Name="MedicalСertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdDepartment" Type="Int32" Nullable="false" />

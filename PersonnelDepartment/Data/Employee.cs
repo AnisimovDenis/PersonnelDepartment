@@ -26,7 +26,7 @@ namespace PersonnelDepartment.Data
         public string INN { get; set; }
         public byte[] Photo { get; set; }
         public string Education { get; set; }
-        public bool MilitaryId { get; set; }
+        public byte[] MilitaryId { get; set; }
         public int IdGender { get; set; }
         public byte[] MedicalСertificate { get; set; }
         public int IdDepartment { get; set; }
