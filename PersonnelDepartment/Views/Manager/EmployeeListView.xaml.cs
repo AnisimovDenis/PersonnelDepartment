@@ -29,7 +29,7 @@ namespace PersonnelDepartment.Views.Manager
 
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
             CbDepartments.ItemsSource = DataService.GetContext().Department.ToList().OrderByDescending(d => d.Name);
         }
 
@@ -45,16 +45,16 @@ namespace PersonnelDepartment.Views.Manager
 
         private void Searching(object sender, TextChangedEventArgs e)
         {
-            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.LastName.StartsWith(TbSearch.Text)).ToList();
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.LastName.StartsWith(TbSearch.Text) && emp.IsFired != true).ToList();
         }
 
         private void Filter(object sender, SelectionChangedEventArgs e)
         {
             var department = CbDepartments.SelectedItem as Department;
             if (department.Name == "Все")
-                LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
             else
-                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList();
+                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name && emp.IsFired != true).ToList();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -62,10 +62,10 @@ namespace PersonnelDepartment.Views.Manager
             var employee = LvItems.SelectedItem as Employee;
             if (MB.MessageBoxQuestion($"Вы действительно хотите удалить сотрудника {employee.LastName} {employee.FirstName} {employee.MiddleName}?"))
             {
-                DataService.GetContext().Employee.Remove(employee);
+                employee.IsFired = true;
                 DataService.GetContext().SaveChanges();
 
-                LvItems.ItemsSource = DataService.GetContext().Employee.ToList();
+                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
 
                 MB.MessageBoxInfo("Вы успешно удалили сотрудника");
             }
@@ -74,6 +74,26 @@ namespace PersonnelDepartment.Views.Manager
         private void OpenAddEmployee(object sender, RoutedEventArgs e)
         {
             EmployeeAddView.Visibility = Visibility.Visible;
+        }
+
+        private void ShowFiredEployees(object sender, RoutedEventArgs e)
+        {
+            BtnShowEployees.Visibility = Visibility.Visible;
+            BtnShowFiredEployees.Visibility = Visibility.Collapsed;
+
+            LvItems.Visibility = Visibility.Collapsed;
+            LvFiredEmployees.Visibility = Visibility.Visible;
+
+            LvFiredEmployees.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired == true).ToList();
+        }
+
+        private void ShowEployees(object sender, RoutedEventArgs e)
+        {
+            BtnShowEployees.Visibility = Visibility.Collapsed;
+            BtnShowFiredEployees.Visibility = Visibility.Visible;
+
+            LvItems.Visibility = Visibility.Visible;
+            LvFiredEmployees.Visibility = Visibility.Collapsed;
         }
     }
 }

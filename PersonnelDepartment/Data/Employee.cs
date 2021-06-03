@@ -35,6 +35,7 @@ namespace PersonnelDepartment.Data
         public Nullable<int> IdUser { get; set; }
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
+        public Nullable<bool> IsFired { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Department Department { get; set; }

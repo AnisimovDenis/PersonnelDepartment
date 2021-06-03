@@ -71,6 +71,7 @@
           <Property Name="IdPosition" Type="int" Nullable="false" />
           <Property Name="Salary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="IdUser" Type="int" />
+          <Property Name="IsFired" Type="bit" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -148,66 +149,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Employee_Address">
-          <End Role="Address" Type="Self.Address" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IdAddress" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Department">
-          <End Role="Department" Type="Self.Department" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IdDepartment" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gender">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IdGender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IdPosition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Employee_User">
-          <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="IdUser" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -241,26 +182,6 @@
           <AssociationSet Name="FK_Applicant_Position" Association="Self.FK_Applicant_Position">
             <End Role="Position" EntitySet="Position" />
             <End Role="Applicant" EntitySet="Applicant" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Address" Association="Self.FK_Employee_Address">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_Position" Association="Self.FK_Employee_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
             <End Role="Role" EntitySet="Role" />
@@ -348,6 +269,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK_Employee_User" FromRole="Employee" ToRole="User" />
           <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="IsFired" Type="Boolean" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -604,6 +526,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="PersonnelDepartmentModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="IsFired" ColumnName="IsFired" />
                 <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
                 <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
