@@ -41,6 +41,7 @@
             </Grid.RowDefinitions>
 
             <TextBox
+                x:Name="TbAddress"
                 VerticalAlignment="Stretch"
                 mah:ControlsHelper.CornerRadius="5"
                 mah:TextBoxHelper.Watermark="Адрес" />
@@ -48,6 +49,7 @@
             <Button
                 Grid.Row="1"
                 mah:ControlsHelper.CornerRadius="5"
+                Click="Add"
                 Content="Добавить" />
         </Grid>
     </Grid>

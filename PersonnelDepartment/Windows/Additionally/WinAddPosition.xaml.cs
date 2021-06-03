@@ -1,4 +1,6 @@
 ﻿using MahApps.Metro.Controls;
+using PersonnelDepartment.Data;
+using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,31 @@ namespace PersonnelDepartment.Windows.Additionally
         public WinAddPosition()
         {
             InitializeComponent();
+        }
+
+        private void Add(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TbPosition.Text))
+            {
+                MB.MessageBoxInfo("Введите должность");
+                TbPosition.Focus();
+            }
+            else
+            {
+                try
+                {
+                    DataService.GetContext().Position.Add(new Data.Position()
+                    {
+                        Name = TbPosition.Text
+                    });
+                    DataService.GetContext().SaveChanges();
+                    MB.MessageBoxInfo("Вы успешно добавили должность");
+                }
+                catch
+                {
+                    MB.MessageBoxError("Ошибка подключения к базе данных");
+                }
+            }
         }
     }
 }
