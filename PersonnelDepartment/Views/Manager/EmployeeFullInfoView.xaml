@@ -42,7 +42,7 @@
 
             <Label
                 Grid.ColumnSpan="2"
-                Content="Изменение сотрудника"
+                Content="Полная информация о сотруднике"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>

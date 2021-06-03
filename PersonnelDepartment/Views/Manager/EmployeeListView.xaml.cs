@@ -101,7 +101,9 @@ namespace PersonnelDepartment.Views.Manager
 
         private void InfoFiredEmployee(object sender, RoutedEventArgs e)
         {
+            Entity.Employee = LvItems.SelectedItem as Employee;
 
+            EmployeeFullInfoView.Visibility = Visibility.Visible;
         }
 
         private void Edit(object sender, RoutedEventArgs e)
