@@ -1,0 +1,324 @@
+﻿<UserControl
+    x:Class="PersonnelDepartment.Views.Manager.EmployeeFullInfoView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:iconPack="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:PersonnelDepartment.Views.Manager"
+    xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="750"
+    d:DesignWidth="1080"
+    IsVisibleChanged="OpenFullInfoEmployee"
+    mc:Ignorable="d">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Rectangle Grid.ColumnSpan="2" Fill="{DynamicResource Main}" />
+
+            <Image
+                Width="200"
+                Margin="24,16"
+                Source="/Resources/logo_white.png" />
+
+            <Button
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="Back"
+                Foreground="White"
+                Style="{DynamicResource ButtonTransparent}">
+                <iconPack:Material Kind="ArrowLeft" />
+            </Button>
+
+            <Label
+                Grid.ColumnSpan="2"
+                Content="Полная информация о сотруднике"
+                Foreground="White"
+                Style="{DynamicResource LabelHeadline}" />
+        </Grid>
+
+        <Border
+            Grid.Row="2"
+            Margin="20,20,20,20"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1"
+            CornerRadius="5" />
+
+        <Grid
+            Grid.Row="2"
+            Margin="25"
+            VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="75" />
+                </Grid.RowDefinitions>
+
+                <Image
+                    x:Name="ImgPhoto"
+                    Grid.RowSpan="3"
+                    Width="200"
+                    Height="200">
+                    <Image.Source>
+                        <Binding Path="Photo">
+                            <Binding.TargetNullValue>
+                                <ImageSource>/Resources/defaultphoto.png</ImageSource>
+                            </Binding.TargetNullValue>
+                        </Binding>
+                    </Image.Source>
+                </Image>
+
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="TbLastName"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Фамилия"
+                        IsEnabled="False"
+                        Text="{Binding LastName}" />
+
+                    <TextBox
+                        x:Name="TbFirstName"
+                        Grid.Column="1"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Имя"
+                        IsEnabled="False"
+                        Text="{Binding FirstName}" />
+
+                    <TextBox
+                        Grid.Column="2"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Отчество"
+                        IsEnabled="False"
+                        Text="{Binding MiddleName}" />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="DpBirthDate"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Дата рождения"
+                        IsEnabled="False"
+                        Text="{Binding BirthDate}" />
+
+                    <TextBox
+                        x:Name="CbGender"
+                        Grid.Column="1"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Пол"
+                        IsEnabled="False"
+                        Text="{Binding Gender.Name}" />
+
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            x:Name="TbPassportSeries"
+                            mah:ControlsHelper.CornerRadius="5"
+                            mah:TextBoxHelper.Watermark="Серия"
+                            IsEnabled="False"
+                            Text="{Binding PassportSeries}" />
+
+                        <TextBox
+                            x:Name="TbPassportNumber"
+                            Grid.Column="2"
+                            mah:ControlsHelper.CornerRadius="5"
+                            mah:TextBoxHelper.Watermark="Номер"
+                            IsEnabled="False"
+                            Text="{Binding PassportNumber}" />
+
+                        <Label
+                            Grid.ColumnSpan="2"
+                            Margin="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Content="Паспортные данные"
+                            FontSize="10"
+                            IsEnabled="False" />
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="TbNumberPhone"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Телефон"
+                        IsEnabled="False"
+                        Text="{Binding PhoneNumber}" />
+
+                    <TextBox
+                        x:Name="TbEmail"
+                        Grid.Column="1"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Почта"
+                        IsEnabled="False"
+                        Text="{Binding Email}" />
+
+                    <Grid Grid.Column="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            x:Name="CbAdress"
+                            VerticalAlignment="Stretch"
+                            mah:ControlsHelper.CornerRadius="5"
+                            mah:TextBoxHelper.Watermark="Адресс"
+                            IsEnabled="False"
+                            Text="{Binding Address.Name}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="250" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="CbDepartment"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Отдел"
+                        IsEnabled="False"
+                        Text="{Binding Department.Name}" />
+
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox
+                            x:Name="CbPosition"
+                            mah:ControlsHelper.CornerRadius="5"
+                            mah:TextBoxHelper.Watermark="Должность"
+                            IsEnabled="False"
+                            Text="{Binding Position.Name}" />
+                    </Grid>
+
+                    <TextBox
+                        x:Name="TbSalary"
+                        Grid.Column="2"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Зарплата"
+                        IsEnabled="False"
+                        Text="{Binding Salary}" />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="TbEducation"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="Образование"
+                        IsEnabled="False"
+                        Text="{Binding Education}" />
+
+                    <TextBox
+                        x:Name="TbSNILS"
+                        Grid.Column="1"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="СНИЛС"
+                        IsEnabled="False"
+                        Text="{Binding SNILS}" />
+
+                    <TextBox
+                        x:Name="TbINN"
+                        Grid.Column="2"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="ИНН"
+                        IsEnabled="False"
+                        Text="{Binding INN}" />
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        x:Name="ImgMilitaryId"
+                        Width="350"
+                        Height="225">
+                        <Image.Source>
+                            <Binding Path="MilitaryId">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Column="2"
+                        Width="350"
+                        Height="225">
+                        <Image.Source>
+                            <Binding Path="MedicalСertificate">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

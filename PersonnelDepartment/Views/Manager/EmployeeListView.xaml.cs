@@ -36,7 +36,9 @@ namespace PersonnelDepartment.Views.Manager
 
         private void InfoEmployee(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show((LvItems.SelectedItem as Employee).Id.ToString());
+            Entity.Employee = LvItems.SelectedItem as Employee;
+
+            EmployeeFullInfoView.Visibility = Visibility.Visible;
         }
 
         private void Back(object sender, RoutedEventArgs e)
@@ -99,7 +101,9 @@ namespace PersonnelDepartment.Views.Manager
 
         private void InfoFiredEmployee(object sender, RoutedEventArgs e)
         {
+            Entity.Employee = LvItems.SelectedItem as Employee;
 
+            EmployeeFullInfoView.Visibility = Visibility.Visible;
         }
 
         private void Edit(object sender, RoutedEventArgs e)

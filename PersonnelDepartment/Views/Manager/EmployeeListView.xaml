@@ -341,5 +341,10 @@
             x:Name="EmployeeEditView"
             Grid.RowSpan="3"
             Visibility="Collapsed" />
+
+        <views:EmployeeFullInfoView
+            x:Name="EmployeeFullInfoView"
+            Grid.RowSpan="3"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>
