@@ -107,7 +107,7 @@
                             <ContextMenu>
                                 <MenuItem Click="InfoEmployee" Header="Полная информация" />
                                 <Separator />
-                                <MenuItem Header="Изменить" />
+                                <MenuItem Click="Edit" Header="Изменить" />
                                 <MenuItem Click="Delete" Header="Удалить" />
                             </ContextMenu>
                         </Grid.ContextMenu>
@@ -334,6 +334,11 @@
 
         <views:EmployeeAddView
             x:Name="EmployeeAddView"
+            Grid.RowSpan="3"
+            Visibility="Collapsed" />
+
+        <views:EmployeeEditView
+            x:Name="EmployeeEditView"
             Grid.RowSpan="3"
             Visibility="Collapsed" />
     </Grid>

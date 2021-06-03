@@ -222,10 +222,14 @@
     <Compile Include="Data\User.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
     <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
       <DependentUpon>EmployeeAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\EmployeeEditView.xaml.cs">
+      <DependentUpon>EmployeeEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Manager\EmployeeListView.xaml.cs">
       <DependentUpon>EmployeeListView.xaml</DependentUpon>
@@ -283,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Manager\EmployeeAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\EmployeeEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
