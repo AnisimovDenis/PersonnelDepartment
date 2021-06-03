@@ -1,4 +1,5 @@
 ﻿using PersonnelDepartment.Data;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
@@ -99,6 +100,13 @@ namespace PersonnelDepartment.Views.Manager
         private void InfoFiredEmployee(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Edit(object sender, RoutedEventArgs e)
+        {
+            Entity.Employee = LvItems.SelectedItem as Employee;
+
+            EmployeeEditView.Visibility = Visibility.Visible;
         }
     }
 }
