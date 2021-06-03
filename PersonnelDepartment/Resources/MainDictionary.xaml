@@ -85,6 +85,16 @@
         <Setter Property="Foreground" Value="{StaticResource Foreground}" />
     </Style>
 
+    <Style BasedOn="{StaticResource MahApps.Styles.DatePicker}" TargetType="DatePicker">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Margin" Value="8" />
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+    </Style>
+
     <Style
         x:Key="ButtonTransparent"
         BasedOn="{StaticResource MahApps.Styles.Button.DropDown}"

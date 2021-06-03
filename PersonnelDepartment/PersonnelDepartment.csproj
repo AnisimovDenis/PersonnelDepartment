@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ControlzEx, Version=5.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.5.0.0\lib\net462\ControlzEx.dll</HintPath>
@@ -207,9 +210,6 @@
     <Compile Include="Data\Gender.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\PassportData.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Data\Position.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
@@ -224,8 +224,17 @@
     </Compile>
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
+    <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
+      <DependentUpon>EmployeeAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\EmployeeListView.xaml.cs">
       <DependentUpon>EmployeeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Additionally\WinAddAddress.xaml.cs">
+      <DependentUpon>WinAddAddress.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Additionally\WinAddPosition.xaml.cs">
+      <DependentUpon>WinAddPosition.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
@@ -273,7 +282,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Manager\EmployeeAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Manager\EmployeeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Additionally\WinAddAddress.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Additionally\WinAddPosition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,6 +333,9 @@
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\no_image.jpg" />
+    <Resource Include="Resources\defaultphoto.png" />
+    <Resource Include="Resources\icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
