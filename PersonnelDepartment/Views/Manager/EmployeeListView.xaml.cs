@@ -95,5 +95,10 @@ namespace PersonnelDepartment.Views.Manager
             LvItems.Visibility = Visibility.Visible;
             LvFiredEmployees.Visibility = Visibility.Collapsed;
         }
+
+        private void InfoFiredEmployee(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

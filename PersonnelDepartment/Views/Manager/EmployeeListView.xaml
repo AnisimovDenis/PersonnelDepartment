@@ -221,10 +221,7 @@
                         Margin="10">
                         <Grid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Click="InfoEmployee" Header="Полная информация" />
-                                <Separator />
-                                <MenuItem Header="Изменить" />
-                                <MenuItem Click="Delete" Header="Удалить" />
+                                <MenuItem Click="InfoFiredEmployee" Header="Полная информация" />
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <Grid.RowDefinitions>
