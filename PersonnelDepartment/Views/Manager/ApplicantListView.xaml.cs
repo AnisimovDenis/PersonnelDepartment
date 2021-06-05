@@ -37,6 +37,8 @@ namespace PersonnelDepartment.Views.Manager
         private void InfoApplicant(object sender, RoutedEventArgs e)
         {
             Entity.Applicant = LvItems.SelectedItem as Applicant;
+
+            ApplicantFullInfoView.Visibility = Visibility.Visible;
         }
 
         private void Back(object sender, RoutedEventArgs e)

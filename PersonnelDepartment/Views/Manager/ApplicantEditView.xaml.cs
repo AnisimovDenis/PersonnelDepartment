@@ -25,11 +25,6 @@ namespace PersonnelDepartment.Views.Manager
     /// </summary>
     public partial class ApplicantEditView : UserControl
     {
-        bool flagMC = false;
-        bool flagMID = false;
-        bool flagNC = false;
-        bool flagCOGC = false;
-
         public ApplicantEditView()
         {
             InitializeComponent();
@@ -76,7 +71,6 @@ namespace PersonnelDepartment.Views.Manager
                 string filename = dlg.FileName;
                 ImgMilitaryId.Source = new BitmapImage(new Uri(filename));
                 Entity.Applicant.MilitaryId = File.ReadAllBytes(filename);
-                flagMID = true;
             }
         }
 
@@ -103,7 +97,6 @@ namespace PersonnelDepartment.Views.Manager
                 string filename = dlg.FileName;
                 ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
                 Entity.Applicant.MedicalCertificate = File.ReadAllBytes(filename);
-                flagMC = true;
             }
         }
 
@@ -206,7 +199,6 @@ namespace PersonnelDepartment.Views.Manager
                 string filename = dlg.FileName;
                 ImgCertificateOfGoodConduct.Source = new BitmapImage(new Uri(filename));
                 Entity.Applicant.CertificateOfGoodConduct = File.ReadAllBytes(filename);
-                flagCOGC = true;
             }
         }
 
@@ -270,7 +262,6 @@ namespace PersonnelDepartment.Views.Manager
                 string filename = dlg.FileName;
                 ImgNarcologicalCertificate.Source = new BitmapImage(new Uri(filename));
                 Entity.Applicant.NarcologicalCertificate = File.ReadAllBytes(filename);
-                flagNC = true;
             }
         }
     }

@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="PersonnelDepartment.Views.Manager.EmployeeFullInfoView"
+    x:Class="PersonnelDepartment.Views.Manager.ApplicantFullInfoView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="750"
     d:DesignWidth="1080"
-    IsVisibleChanged="OpenFullInfoEmployee"
+    IsVisibleChanged="OpenFullInfoApplicant"
     mc:Ignorable="d">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
             <Label
                 Grid.ColumnSpan="2"
                 Margin="16,32,16,12"
-                Content="Полная информация о сотруднике"
+                Content="Полная информация о соискателе"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
@@ -78,8 +78,8 @@
                 <Image
                     x:Name="ImgPhoto"
                     Grid.RowSpan="3"
-                    Width="200"
-                    Height="200">
+                    Width="150"
+                    Height="150">
                     <Image.Source>
                         <Binding Path="Photo">
                             <Binding.TargetNullValue>
@@ -223,15 +223,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <TextBox
-                        x:Name="CbDepartment"
+                        x:Name="TbEducation"
                         mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="Отдел"
+                        mah:TextBoxHelper.Watermark="Образование"
                         IsEnabled="False"
-                        Text="{Binding Department.Name}" />
+                        Text="{Binding Education}" />
 
                     <Grid Grid.Column="1">
                         <Grid.ColumnDefinitions>
@@ -246,33 +245,17 @@
                             IsEnabled="False"
                             Text="{Binding Position.Name}" />
                     </Grid>
-
-                    <TextBox
-                        x:Name="TbSalary"
-                        Grid.Column="2"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="Зарплата"
-                        IsEnabled="False"
-                        Text="{Binding Salary}" />
                 </Grid>
 
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
-                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
                     <TextBox
-                        x:Name="TbEducation"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="Образование"
-                        IsEnabled="False"
-                        Text="{Binding Education}" />
-
-                    <TextBox
                         x:Name="TbSNILS"
-                        Grid.Column="1"
+                        Grid.Column="0"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="СНИЛС"
                         IsEnabled="False"
@@ -288,6 +271,10 @@
                 </Grid>
 
                 <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition />
@@ -295,8 +282,9 @@
 
                     <Image
                         x:Name="ImgMilitaryId"
-                        Width="450"
-                        Height="250">
+                        Width="250"
+                        Height="150"
+                        Margin="8">
                         <Image.Source>
                             <Binding Path="MilitaryId">
                                 <Binding.TargetNullValue>
@@ -308,10 +296,41 @@
 
                     <Image
                         Grid.Column="2"
-                        Width="450"
-                        Height="250">
+                        Width="250"
+                        Height="150"
+                        Margin="8">
                         <Image.Source>
                             <Binding Path="MedicalCertificate">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="CertificateOfGoodConduct">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="NarcologicalCertificate">
                                 <Binding.TargetNullValue>
                                     <ImageSource>/Resources/no_image.jpg</ImageSource>
                                 </Binding.TargetNullValue>

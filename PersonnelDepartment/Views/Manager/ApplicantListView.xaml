@@ -220,5 +220,10 @@
             Grid.RowSpan="3"
             IsVisibleChanged="ApplicantAddViewClosed"
             Visibility="Collapsed" />
+
+        <views:ApplicantFullInfoView
+            x:Name="ApplicantFullInfoView"
+            Grid.RowSpan="3"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

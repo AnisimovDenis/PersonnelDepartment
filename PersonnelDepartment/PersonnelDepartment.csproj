@@ -231,6 +231,9 @@
     <Compile Include="Views\Manager\ApplicantEditView.xaml.cs">
       <DependentUpon>ApplicantEditView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Manager\ApplicantFullInfoView.xaml.cs">
+      <DependentUpon>ApplicantFullInfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\ApplicantListView.xaml.cs">
       <DependentUpon>ApplicantListView.xaml</DependentUpon>
     </Compile>
@@ -303,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Manager\ApplicantEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\ApplicantFullInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
