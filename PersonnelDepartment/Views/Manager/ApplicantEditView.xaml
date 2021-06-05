@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="PersonnelDepartment.Views.Manager.ApplicantAddView"
+    x:Class="PersonnelDepartment.Views.Manager.ApplicantEditView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -46,7 +46,7 @@
             <Label
                 Grid.ColumnSpan="2"
                 Margin="16,32,16,12"
-                Content="Добавление соискателя"
+                Content="Изменение соискателя"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
@@ -483,8 +483,8 @@
                     Width="250"
                     Margin="8"
                     mah:ControlsHelper.CornerRadius="5"
-                    Click="Add"
-                    Content="Добавить" />
+                    Click="Edit"
+                    Content="Изменить" />
             </Grid>
         </Grid>
     </Grid>

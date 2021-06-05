@@ -1,4 +1,5 @@
 ﻿using PersonnelDepartment.Data;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using PersonnelDepartment.Windows.Additionally;
 using System;
@@ -20,21 +21,19 @@ using System.Windows.Shapes;
 namespace PersonnelDepartment.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for ApplicantAddView.xaml
+    /// Interaction logic for ApplicantEditView.xaml
     /// </summary>
-    public partial class ApplicantAddView : UserControl
+    public partial class ApplicantEditView : UserControl
     {
-        Applicant applicant;
         bool flagMC = false;
         bool flagMID = false;
         bool flagNC = false;
         bool flagCOGC = false;
 
-        public ApplicantAddView()
+        public ApplicantEditView()
         {
             InitializeComponent();
         }
-
         private void Back(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Collapsed;
@@ -76,7 +75,7 @@ namespace PersonnelDepartment.Views.Manager
                 // Open document 
                 string filename = dlg.FileName;
                 ImgMilitaryId.Source = new BitmapImage(new Uri(filename));
-                applicant.MilitaryId = File.ReadAllBytes(filename);
+                Entity.Applicant.MilitaryId = File.ReadAllBytes(filename);
                 flagMID = true;
             }
         }
@@ -103,12 +102,12 @@ namespace PersonnelDepartment.Views.Manager
                 // Open document 
                 string filename = dlg.FileName;
                 ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
-                applicant.MedicalCertificate = File.ReadAllBytes(filename);
+                Entity.Applicant.MedicalCertificate = File.ReadAllBytes(filename);
                 flagMC = true;
             }
         }
 
-        private void Add(object sender, RoutedEventArgs e)
+        private void Edit(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TbEducation.Text))
             {
@@ -170,33 +169,12 @@ namespace PersonnelDepartment.Views.Manager
                 MB.MessageBoxInfo("Заполните должность");
                 CbPosition.Focus();
             }
-            else if (CbGender.Text == "Мужчина" && flagMID == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию военного билета");
-                BtnMilitaryId.Focus();
-            }
-            else if (flagMC == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию медицинской карты");
-                BtnMedicalCertificate.Focus();
-            }
-            else if (flagCOGC == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию справку о судимости");
-                BtnCertificateOfGoodConduct.Focus();
-            }
-            else if (flagNC == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию наркологическую справку");
-                BtnNarcologicalCertificate.Focus();
-            }
             else
             {
                 try
                 {
-                    DataService.GetContext().Applicant.Add(applicant);
                     DataService.GetContext().SaveChanges();
-                    MB.MessageBoxInfo("Соискатель успешно добавлен");
+                    MB.MessageBoxInfo("Соискатель успешно изменен");
                 }
                 catch
                 {
@@ -227,7 +205,7 @@ namespace PersonnelDepartment.Views.Manager
                 // Open document 
                 string filename = dlg.FileName;
                 ImgCertificateOfGoodConduct.Source = new BitmapImage(new Uri(filename));
-                applicant.CertificateOfGoodConduct = File.ReadAllBytes(filename);
+                Entity.Applicant.CertificateOfGoodConduct = File.ReadAllBytes(filename);
                 flagCOGC = true;
             }
         }
@@ -254,14 +232,13 @@ namespace PersonnelDepartment.Views.Manager
                 // Open document 
                 string filename = dlg.FileName;
                 ImgPhoto.Source = new BitmapImage(new Uri(filename));
-                applicant.Photo = File.ReadAllBytes(filename);
+                Entity.Applicant.Photo = File.ReadAllBytes(filename);
             }
         }
 
         private void OpenAddApplicant(object sender, DependencyPropertyChangedEventArgs e)
         {
-            applicant = new Applicant();
-            DataContext = applicant;
+            DataContext = Entity.Applicant;
 
             CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
             CbGender.ItemsSource = DataService.GetContext().Gender.ToList();
@@ -292,7 +269,7 @@ namespace PersonnelDepartment.Views.Manager
                 // Open document 
                 string filename = dlg.FileName;
                 ImgNarcologicalCertificate.Source = new BitmapImage(new Uri(filename));
-                applicant.NarcologicalCertificate = File.ReadAllBytes(filename);
+                Entity.Applicant.NarcologicalCertificate = File.ReadAllBytes(filename);
                 flagNC = true;
             }
         }

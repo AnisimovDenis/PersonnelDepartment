@@ -81,6 +81,7 @@ namespace PersonnelDepartment.Views.Manager
         {
             Entity.Applicant = LvItems.SelectedItem as Applicant;
 
+            ApplicantEditView.Visibility = Visibility.Visible;
         }
 
         private void ApplicantAddViewClosed(object sender, DependencyPropertyChangedEventArgs e)

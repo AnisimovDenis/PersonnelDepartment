@@ -214,5 +214,11 @@
             Grid.RowSpan="3"
             IsVisibleChanged="ApplicantAddViewClosed"
             Visibility="Collapsed" />
+
+        <views:ApplicantEditView
+            x:Name="ApplicantEditView"
+            Grid.RowSpan="3"
+            IsVisibleChanged="ApplicantAddViewClosed"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>
