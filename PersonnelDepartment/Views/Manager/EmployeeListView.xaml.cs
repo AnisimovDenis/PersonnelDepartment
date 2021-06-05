@@ -87,7 +87,10 @@ namespace PersonnelDepartment.Views.Manager
             LvItems.Visibility = Visibility.Collapsed;
             LvFiredEmployees.Visibility = Visibility.Visible;
 
+            LblHeadLine.Content = "Список уволенных сотрудников";
+
             LvFiredEmployees.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired == true).ToList();
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
         }
 
         private void ShowEployees(object sender, RoutedEventArgs e)
@@ -97,11 +100,16 @@ namespace PersonnelDepartment.Views.Manager
 
             LvItems.Visibility = Visibility.Visible;
             LvFiredEmployees.Visibility = Visibility.Collapsed;
+
+            LblHeadLine.Content = "Список сотрудников";
+
+            LvFiredEmployees.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired == true).ToList();
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
         }
 
         private void InfoFiredEmployee(object sender, RoutedEventArgs e)
         {
-            Entity.Employee = LvItems.SelectedItem as Employee;
+            Entity.Employee = LvFiredEmployees.SelectedItem as Employee;
 
             EmployeeFullInfoView.Visibility = Visibility.Visible;
         }
@@ -111,6 +119,24 @@ namespace PersonnelDepartment.Views.Manager
             Entity.Employee = LvItems.SelectedItem as Employee;
 
             EmployeeEditView.Visibility = Visibility.Visible;
+        }
+
+        private void EmployeeRecovery(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var employee = LvFiredEmployees.SelectedItem as Employee;
+                employee.IsFired = false;
+                DataService.GetContext().SaveChanges();
+                MB.MessageBoxInfo($"Сотрудник {employee.LastName} {employee.FirstName} {employee.MiddleName} успешно восстановлен");
+
+                LvFiredEmployees.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired == true).ToList();
+                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
+            }
+            catch
+            {
+                MB.MessageBoxError("Ошибка подключения к базе данных");
+            }
         }
     }
 }

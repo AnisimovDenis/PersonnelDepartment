@@ -42,6 +42,7 @@
             </Button>
 
             <Label
+                x:Name="LblHeadLine"
                 Grid.ColumnSpan="2"
                 Content="Список сотрудников"
                 Foreground="White"
@@ -222,6 +223,8 @@
                         <Grid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Click="InfoFiredEmployee" Header="Полная информация" />
+                                <Separator />
+                                <MenuItem Click="EmployeeRecovery" Header="Восстановить" />
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <Grid.RowDefinitions>
