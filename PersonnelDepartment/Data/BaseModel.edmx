@@ -24,8 +24,8 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="IdAddress" Type="int" Nullable="false" />
-          <Property Name="PassportSeries" Type="nvarchar" MaxLength="4" />
-          <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" />
+          <Property Name="PassportSeries" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
           <Property Name="SNILS" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="INN" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
@@ -226,8 +226,8 @@
           <NavigationProperty Name="Address" Relationship="Self.FK_Applicant_Address" FromRole="Applicant" ToRole="Address" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Applicant_Gender" FromRole="Applicant" ToRole="Gender" />
           <NavigationProperty Name="Position" Relationship="Self.FK_Applicant_Position" FromRole="Applicant" ToRole="Position" />
-          <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Department">
           <Key>

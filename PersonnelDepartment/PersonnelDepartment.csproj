@@ -225,6 +225,9 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
+    <Compile Include="Views\Manager\ApplicantListView.xaml.cs">
+      <DependentUpon>ApplicantListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
       <DependentUpon>EmployeeAddView.xaml</DependentUpon>
     </Compile>
@@ -286,6 +289,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\ApplicantListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
