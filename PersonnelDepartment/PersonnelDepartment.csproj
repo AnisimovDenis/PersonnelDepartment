@@ -261,6 +261,9 @@
     <Compile Include="Windows\Manager\WinManager.xaml.cs">
       <DependentUpon>WinManager.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Manager\WinTransfer.xaml.cs">
+      <DependentUpon>WinTransfer.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -346,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Manager\WinManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Manager\WinTransfer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

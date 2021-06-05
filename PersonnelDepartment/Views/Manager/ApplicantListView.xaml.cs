@@ -1,6 +1,7 @@
 ﻿using PersonnelDepartment.Data;
 using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
+using PersonnelDepartment.Windows.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,6 +89,25 @@ namespace PersonnelDepartment.Views.Manager
 
         private void ApplicantAddViewClosed(object sender, DependencyPropertyChangedEventArgs e)
         {
+            LvItems.ItemsSource = DataService.GetContext().Applicant.ToList();
+        }
+
+        private void Transfer(object sender, RoutedEventArgs e)
+        {
+            Entity.Applicant = LvItems.SelectedItem as Applicant;
+
+            new WinTransfer().ShowDialog();
+
+            try
+            {
+                DataService.GetContext().Applicant.Remove(LvItems.SelectedItem as Applicant);
+                DataService.GetContext().SaveChanges();
+            }
+            catch 
+            {
+                MB.MessageBoxError("Ошибка подключения к базе данных");
+            }
+
             LvItems.ItemsSource = DataService.GetContext().Applicant.ToList();
         }
     }

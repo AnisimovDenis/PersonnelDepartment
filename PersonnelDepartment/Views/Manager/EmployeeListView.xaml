@@ -135,8 +135,8 @@
 
                             <Image
                                 Width="150"
-                                Margin="8"
-                                Height="150">
+                                Height="150"
+                                Margin="8">
                                 <Image.Source>
                                     <Binding Path="Photo">
                                         <Binding.TargetNullValue>

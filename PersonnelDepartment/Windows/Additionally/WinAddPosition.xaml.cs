@@ -51,5 +51,10 @@ namespace PersonnelDepartment.Windows.Additionally
                 }
             }
         }
+
+        private void Transfer(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

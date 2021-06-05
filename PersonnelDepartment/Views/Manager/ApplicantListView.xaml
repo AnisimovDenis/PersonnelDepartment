@@ -112,6 +112,8 @@
                             <ContextMenu>
                                 <MenuItem Click="InfoApplicant" Header="Полная информация" />
                                 <Separator />
+                                <MenuItem Click="Transfer" Header="Принят соискателя" />
+                                <Separator />
                                 <MenuItem Click="Edit" Header="Изменить" />
                                 <MenuItem Click="Delete" Header="Удалить" />
                             </ContextMenu>
