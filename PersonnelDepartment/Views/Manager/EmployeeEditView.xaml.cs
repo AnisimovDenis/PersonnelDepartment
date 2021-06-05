@@ -150,6 +150,7 @@ namespace PersonnelDepartment.Views.Manager
                 try
                 {
                     DataService.GetContext().SaveChanges();
+                    MB.MessageBoxInfo("Сотрудник успешно изменен");
                 }
                 catch
                 {

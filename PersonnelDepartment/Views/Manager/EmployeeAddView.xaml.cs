@@ -166,6 +166,7 @@ namespace PersonnelDepartment.Views.Manager
                 {
                     DataService.GetContext().Employee.Add(employee);
                     DataService.GetContext().SaveChanges();
+                    MB.MessageBoxInfo("Сотрудник успешно добавлен");
                 }
                 catch
                 {
