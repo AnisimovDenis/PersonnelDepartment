@@ -32,7 +32,7 @@
           <Property Name="Education" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="MilitaryId" Type="varbinary(max)" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="varbinary(max)" />
+          <Property Name="MedicalCertificate" Type="varbinary(max)" />
           <Property Name="IdPosition" Type="int" Nullable="false" />
           <Property Name="CertificateOfGoodConduct" Type="varbinary(max)" />
           <Property Name="NarcologicalCertificate" Type="varbinary(max)" />
@@ -429,13 +429,13 @@
           <Property Name="Education" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="MilitaryId" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdPosition" Type="Int32" Nullable="false" />
           <Property Name="CertificateOfGoodConduct" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="NarcologicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Address" Relationship="PersonnelDepartmentModel.FK_Applicant_Address" FromRole="Applicant" ToRole="Address" />
           <NavigationProperty Name="Gender" Relationship="PersonnelDepartmentModel.FK_Applicant_Gender" FromRole="Applicant" ToRole="Gender" />
           <NavigationProperty Name="Position" Relationship="PersonnelDepartmentModel.FK_Applicant_Position" FromRole="Applicant" ToRole="Position" />
+          <Property Name="MedicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_Applicant_Address">
           <End Type="PersonnelDepartmentModel.Address" Role="Address" Multiplicity="1" />
@@ -573,10 +573,10 @@
           <EntitySetMapping Name="Applicant">
             <EntityTypeMapping TypeName="PersonnelDepartmentModel.Applicant">
               <MappingFragment StoreEntitySet="Applicant">
+                <ScalarProperty Name="MedicalCertificate" ColumnName="MedicalCertificate" />
                 <ScalarProperty Name="NarcologicalCertificate" ColumnName="NarcologicalCertificate" />
                 <ScalarProperty Name="CertificateOfGoodConduct" ColumnName="CertificateOfGoodConduct" />
                 <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
-                <ScalarProperty Name="MedicalСertificate" ColumnName="MedicalСertificate" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="MilitaryId" ColumnName="MilitaryId" />
                 <ScalarProperty Name="Education" ColumnName="Education" />

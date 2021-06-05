@@ -30,10 +30,10 @@ namespace PersonnelDepartment.Data
         public string Education { get; set; }
         public byte[] MilitaryId { get; set; }
         public int IdGender { get; set; }
-        public byte[] MedicalСertificate { get; set; }
         public int IdPosition { get; set; }
         public byte[] CertificateOfGoodConduct { get; set; }
         public byte[] NarcologicalCertificate { get; set; }
+        public byte[] MedicalCertificate { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Gender Gender { get; set; }

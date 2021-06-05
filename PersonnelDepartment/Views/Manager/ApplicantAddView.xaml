@@ -370,7 +370,7 @@
                             HorizontalAlignment="Stretch"
                             mah:ControlsHelper.CornerRadius="5"
                             Click="LoadMedicalCertificate"
-                            Content="Загрузить справку о судимости" />
+                            Content="Загрузить медицинскую карту" />
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
@@ -416,7 +416,7 @@
                             HorizontalAlignment="Stretch"
                             mah:ControlsHelper.CornerRadius="5"
                             Click="LoadCertificateOfGoodConduct"
-                            Content="Загрузить справку о несудимости" />
+                            Content="Загрузить справку о судимости" />
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
