@@ -208,5 +208,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <views:ApplicantAddView
+            x:Name="ApplicantAddView"
+            Grid.RowSpan="3"
+            Visibility="Collapsed" />
     </Grid>
 </UserControl>

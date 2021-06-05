@@ -28,7 +28,6 @@ namespace PersonnelDepartment.Data
         public string Education { get; set; }
         public byte[] MilitaryId { get; set; }
         public int IdGender { get; set; }
-        public byte[] MedicalСertificate { get; set; }
         public int IdDepartment { get; set; }
         public int IdPosition { get; set; }
         public decimal Salary { get; set; }
@@ -36,6 +35,7 @@ namespace PersonnelDepartment.Data
         public string PassportSeries { get; set; }
         public string PassportNumber { get; set; }
         public Nullable<bool> IsFired { get; set; }
+        public byte[] MedicalCertificate { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Department Department { get; set; }

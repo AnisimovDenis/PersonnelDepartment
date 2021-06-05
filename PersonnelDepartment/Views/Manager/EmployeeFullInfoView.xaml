@@ -314,7 +314,7 @@
                         Width="350"
                         Height="225">
                         <Image.Source>
-                            <Binding Path="MedicalСertificate">
+                            <Binding Path="MedicalCertificate">
                                 <Binding.TargetNullValue>
                                     <ImageSource>/Resources/no_image.jpg</ImageSource>
                                 </Binding.TargetNullValue>

@@ -73,7 +73,7 @@ namespace PersonnelDepartment.Views.Manager
 
         private void OpenAddApplicant(object sender, RoutedEventArgs e)
         {
-            
+            ApplicantAddView.Visibility = Visibility.Visible;
         }
 
         private void Edit(object sender, RoutedEventArgs e)

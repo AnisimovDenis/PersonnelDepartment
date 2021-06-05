@@ -223,8 +223,8 @@ namespace PersonnelDepartment.Views.Manager
             {
                 // Open document 
                 string filename = dlg.FileName;
-                ImgMedicalСertificate.Source = new BitmapImage(new Uri(filename));
-                employee.MedicalСertificate = File.ReadAllBytes(filename);
+                ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
+                employee.MedicalCertificate = File.ReadAllBytes(filename);
                 flagMC = true;
             }
         }

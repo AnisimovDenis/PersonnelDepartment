@@ -382,12 +382,12 @@
                         <Label Grid.Column="1">
                             <Label.ToolTip>
                                 <Image
-                                    x:Name="ImgMedicalСertificate"
+                                    x:Name="ImgMedicalCertificate"
                                     Grid.RowSpan="2"
                                     Width="350"
                                     Height="350">
                                     <Image.Source>
-                                        <Binding Path="MedicalСertificate">
+                                        <Binding Path="MedicalCertificate">
                                             <Binding.TargetNullValue>
                                                 <ImageSource>/Resources/no_image.jpg</ImageSource>
                                             </Binding.TargetNullValue>
