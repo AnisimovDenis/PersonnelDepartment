@@ -29,13 +29,16 @@
 
             <Image
                 Width="200"
-                Margin="24,16"
+                Margin="45,16"
                 Source="/Resources/logo_white.png" />
 
             <Button
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
+                VerticalAlignment="Stretch"
                 Click="Back"
+                Width="40"
+                Padding="0 12 0 0"
+                Margin="0"
                 Foreground="White"
                 Style="{DynamicResource ButtonTransparent}">
                 <iconPack:Material Kind="ArrowLeft" />
@@ -46,6 +49,7 @@
                 Grid.ColumnSpan="2"
                 Content="Список сотрудников"
                 Foreground="White"
+                Margin="16 32 16 12"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
 
@@ -338,6 +342,7 @@
         <views:EmployeeAddView
             x:Name="EmployeeAddView"
             Grid.RowSpan="3"
+            IsVisibleChanged="EmployeeAddViewClosed"
             Visibility="Collapsed" />
 
         <views:EmployeeEditView

@@ -28,12 +28,15 @@
 
             <Image
                 Width="200"
-                Margin="24,16"
+                Margin="45,16"
                 Source="/Resources/logo_white.png" />
 
             <Button
+                Width="40"
+                Margin="0"
+                Padding="0,12,0,0"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"
+                VerticalAlignment="Stretch"
                 Click="Back"
                 Foreground="White"
                 Style="{DynamicResource ButtonTransparent}">
@@ -42,6 +45,7 @@
 
             <Label
                 Grid.ColumnSpan="2"
+                Margin="16,32,16,12"
                 Content="Полная информация о сотруднике"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />

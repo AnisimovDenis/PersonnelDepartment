@@ -138,5 +138,10 @@ namespace PersonnelDepartment.Views.Manager
                 MB.MessageBoxError("Ошибка подключения к базе данных");
             }
         }
+
+        private void EmployeeAddViewClosed(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
+        }
     }
 }
