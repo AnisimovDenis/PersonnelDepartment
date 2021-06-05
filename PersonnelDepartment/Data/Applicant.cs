@@ -22,18 +22,18 @@ namespace PersonnelDepartment.Data
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public int IdAddress { get; set; }
+        public string PassportSeries { get; set; }
+        public string PassportNumber { get; set; }
         public string SNILS { get; set; }
         public string INN { get; set; }
         public byte[] Photo { get; set; }
         public string Education { get; set; }
-        public bool MilitaryId { get; set; }
+        public byte[] MilitaryId { get; set; }
         public int IdGender { get; set; }
-        public string MedicalСertificate { get; set; }
+        public byte[] MedicalСertificate { get; set; }
         public int IdPosition { get; set; }
         public byte[] CertificateOfGoodConduct { get; set; }
         public byte[] NarcologicalCertificate { get; set; }
-        public string PassportSeries { get; set; }
-        public string PassportNumber { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual Gender Gender { get; set; }

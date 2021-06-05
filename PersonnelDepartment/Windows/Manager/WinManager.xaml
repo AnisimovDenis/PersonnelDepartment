@@ -119,6 +119,7 @@
                     fw:PointerTracker.Enabled="True"
                     fw:RevealElement.MouseOverBackground="#FF007DC9"
                     Background="#0079C2"
+                    Click="OpenApplicantList"
                     FontFamily="Century Gothic"
                     FontSize="18"
                     Foreground="White"
@@ -281,6 +282,11 @@
 
         <views:EmployeeListView
             x:Name="EmployeeListView"
+            Grid.ColumnSpan="2"
+            Visibility="Collapsed" />
+
+        <views:ApplicantListView
+            x:Name="ApplicantListView"
             Grid.ColumnSpan="2"
             Visibility="Collapsed" />
     </Grid>

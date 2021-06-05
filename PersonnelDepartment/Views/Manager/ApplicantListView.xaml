@@ -63,6 +63,14 @@
                 Click="OpenAddApplicant"
                 Content="Добавить" />
 
+            <ComboBox
+                x:Name="CbPosition"
+                Width="250"
+                mah:ControlsHelper.CornerRadius="5"
+                mah:TextBoxHelper.Watermark="Должность"
+                DisplayMemberPath="Name"
+                SelectedItem="{Binding Department}"
+                SelectionChanged="Filter" />
             <TextBox
                 x:Name="TbSearch"
                 Width="250"
@@ -126,9 +134,17 @@
                             </Grid.ColumnDefinitions>
 
                             <Image
-                                Width="125"
-                                Margin="8"
-                                Source="/Resources/BackgroundMainMenu.jpg" />
+                                Width="150"
+                                Height="150"
+                                Margin="8">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Resources/defaultphoto.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
 
                             <Rectangle
                                 Grid.ColumnSpan="2"
@@ -156,7 +172,7 @@
 
                                 <Label Grid.Row="1" Content="{Binding Position.Name}" />
 
-                                <Label Grid.Row="2" Content="{Binding Department.Name}" />
+                                <Label Grid.Row="2" Content="{Binding Education}" />
                             </Grid>
                         </Grid>
 
@@ -192,17 +208,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Button
-            x:Name="BtnShowApplicants"
-            Grid.Row="2"
-            Margin="8,8,30,8"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.CornerRadius="5"
-            Click="ShowApplicants"
-            Content="Показать сотрудников"
-            Style="{DynamicResource ButtonTransparent}"
-            Visibility="Collapsed" />
     </Grid>
 </UserControl>
