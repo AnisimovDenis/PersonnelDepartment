@@ -62,11 +62,12 @@ namespace PersonnelDepartment.Views.Manager
             var applicant = LvItems.SelectedItem as Applicant;
             if (MB.MessageBoxQuestion($"Вы действительно хотите удалить соискателя {applicant.LastName} {applicant.FirstName} {applicant.MiddleName}?"))
             {
+                DataService.GetContext().Applicant.Remove(applicant);
                 DataService.GetContext().SaveChanges();
 
                 LvItems.ItemsSource = DataService.GetContext().Applicant.ToList();
 
-                MB.MessageBoxInfo("Вы успешно удалили соискателя");
+                MB.MessageBoxInfo($"Вы успешно удалили соискателя {applicant.LastName} {applicant.FirstName} {applicant.MiddleName}");
             }
         }
 
