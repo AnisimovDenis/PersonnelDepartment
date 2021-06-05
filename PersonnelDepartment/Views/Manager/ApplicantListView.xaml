@@ -212,6 +212,7 @@
         <views:ApplicantAddView
             x:Name="ApplicantAddView"
             Grid.RowSpan="3"
+            IsVisibleChanged="ApplicantAddViewClosed"
             Visibility="Collapsed" />
     </Grid>
 </UserControl>

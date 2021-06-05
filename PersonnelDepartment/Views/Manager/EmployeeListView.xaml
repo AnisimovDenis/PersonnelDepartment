@@ -356,6 +356,7 @@
         <views:EmployeeEditView
             x:Name="EmployeeEditView"
             Grid.RowSpan="3"
+            IsVisibleChanged="EmployeeAddViewClosed"
             Visibility="Collapsed" />
 
         <views:EmployeeFullInfoView

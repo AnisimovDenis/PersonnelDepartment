@@ -31,6 +31,7 @@ namespace PersonnelDepartment.Views.Manager
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             LvItems.ItemsSource = DataService.GetContext().Applicant.ToList();
+            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
         }
 
         private void InfoApplicant(object sender, RoutedEventArgs e)
@@ -52,9 +53,9 @@ namespace PersonnelDepartment.Views.Manager
         {
             var position = CbPosition.SelectedItem as Position;
             if (position.Name == "Все")
-                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
+                LvItems.ItemsSource = DataService.GetContext().Applicant.ToList();
             else
-                LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.Department.Name == position.Name).ToList();
+                LvItems.ItemsSource = DataService.GetContext().Applicant.Where(emp => emp.Position.Name == position.Name).ToList();
         }
 
         private void Delete(object sender, RoutedEventArgs e)
