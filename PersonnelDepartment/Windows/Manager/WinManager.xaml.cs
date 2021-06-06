@@ -34,5 +34,10 @@ namespace PersonnelDepartment.Windows.Manager
         {
             ApplicantListView.Visibility = Visibility.Visible;
         }
+
+        private void OpenDepartmentList(object sender, RoutedEventArgs e)
+        {
+            DepartmentListView.Visibility = Visibility.Visible;
+        }
     }
 }

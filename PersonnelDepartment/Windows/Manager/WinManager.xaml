@@ -159,6 +159,7 @@
                     fw:PointerTracker.Enabled="True"
                     fw:RevealElement.MouseOverBackground="#FF007DC9"
                     Background="#0079C2"
+                    Click="OpenDepartmentList"
                     FontFamily="Century Gothic"
                     FontSize="18"
                     Foreground="White"
@@ -287,6 +288,11 @@
 
         <views:ApplicantListView
             x:Name="ApplicantListView"
+            Grid.ColumnSpan="2"
+            Visibility="Collapsed" />
+
+        <views:DepartmentListView
+            x:Name="DepartmentListView"
             Grid.ColumnSpan="2"
             Visibility="Collapsed" />
     </Grid>
