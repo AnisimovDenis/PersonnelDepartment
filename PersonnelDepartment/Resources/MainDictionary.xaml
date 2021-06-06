@@ -62,6 +62,18 @@
         <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}" />
     </Style>
 
+    <Style BasedOn="{StaticResource MahApps.Styles.DataGrid.Azure}" TargetType="DataGrid">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Foreground" Value="{StaticResource Foreground}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
 
     <Style
         x:Key="TextBlockMain"

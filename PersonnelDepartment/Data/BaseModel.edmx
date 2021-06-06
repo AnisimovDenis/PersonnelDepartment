@@ -45,6 +45,8 @@
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="DaysWorking" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="TimeWorking" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="TotalAmount" Type="int" />
+          <Property Name="QuantityAtTheMoment" Type="int" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -210,6 +212,8 @@
           <Property Name="DaysWorking" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TimeWorking" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+          <Property Name="TotalAmount" Type="Int32" />
+          <Property Name="QuantityAtTheMoment" Type="Int32" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -490,6 +494,8 @@
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="PersonnelDepartmentModel.Department">
               <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="QuantityAtTheMoment" ColumnName="QuantityAtTheMoment" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DaysWorking" ColumnName="DaysWorking" />

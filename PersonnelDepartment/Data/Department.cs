@@ -24,6 +24,8 @@ namespace PersonnelDepartment.Data
         public string Name { get; set; }
         public string DaysWorking { get; set; }
         public string TimeWorking { get; set; }
+        public Nullable<int> TotalAmount { get; set; }
+        public Nullable<int> QuantityAtTheMoment { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }

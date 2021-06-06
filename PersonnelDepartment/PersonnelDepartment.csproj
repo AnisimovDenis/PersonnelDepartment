@@ -237,6 +237,15 @@
     <Compile Include="Views\Manager\ApplicantListView.xaml.cs">
       <DependentUpon>ApplicantListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Manager\DepartmentAddView.xaml.cs">
+      <DependentUpon>DepartmentAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\DepartmentEditView.xaml.cs">
+      <DependentUpon>DepartmentEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\DepartmentListView.xaml.cs">
+      <DependentUpon>DepartmentListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
       <DependentUpon>EmployeeAddView.xaml</DependentUpon>
     </Compile>
@@ -317,6 +326,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Manager\ApplicantListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\DepartmentAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\DepartmentEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\DepartmentListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
