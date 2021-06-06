@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="PersonnelDepartment.Views.Manager.EmployeeListView"
+    x:Class="PersonnelDepartment.Views.Manager.ApplicantListView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -48,7 +48,7 @@
                 x:Name="LblHeadLine"
                 Grid.ColumnSpan="2"
                 Margin="16,32,16,12"
-                Content="Список сотрудников"
+                Content="Список соискателей"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
@@ -60,14 +60,14 @@
             Orientation="Horizontal">
             <Button
                 mah:ControlsHelper.CornerRadius="5"
-                Click="OpenAddEmployee"
+                Click="OpenAddApplicant"
                 Content="Добавить" />
 
             <ComboBox
-                x:Name="CbDepartments"
+                x:Name="CbPosition"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Отдел"
+                mah:TextBoxHelper.Watermark="Должность"
                 DisplayMemberPath="Name"
                 SelectedItem="{Binding Department}"
                 SelectionChanged="Filter" />
@@ -110,7 +110,9 @@
                         Margin="10">
                         <Grid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Click="InfoEmployee" Header="Полная информация" />
+                                <MenuItem Click="InfoApplicant" Header="Полная информация" />
+                                <Separator />
+                                <MenuItem Click="Transfer" Header="Принят соискателя" />
                                 <Separator />
                                 <MenuItem Click="Edit" Header="Изменить" />
                                 <MenuItem Click="Delete" Header="Удалить" />
@@ -172,7 +174,7 @@
 
                                 <Label Grid.Row="1" Content="{Binding Position.Name}" />
 
-                                <Label Grid.Row="2" Content="{Binding Department.Name}" />
+                                <Label Grid.Row="2" Content="{Binding Education}" />
                             </Grid>
                         </Grid>
 
@@ -209,158 +211,20 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <ListView
-            x:Name="LvFiredEmployees"
-            Grid.Row="2"
-            Margin="50"
-            Background="Transparent"
-            Visibility="Collapsed">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel
-                        Width="960"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid
-                        Grid.Column="1"
-                        Width="450"
-                        Height="350"
-                        Margin="10">
-                        <Grid.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Click="InfoFiredEmployee" Header="Полная информация" />
-                                <Separator />
-                                <MenuItem Click="EmployeeRecovery" Header="Восстановить" />
-                            </ContextMenu>
-                        </Grid.ContextMenu>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-
-                        <Border
-                            Grid.RowSpan="2"
-                            Background="White"
-                            BorderBrush="{DynamicResource BorderBrush}"
-                            BorderThickness="1"
-                            CornerRadius="5" />
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-
-                            <Image
-                                Width="125"
-                                Margin="8"
-                                Source="/Resources/BackgroundMainMenu.jpg" />
-
-                            <Rectangle
-                                Grid.ColumnSpan="2"
-                                Margin="5,0"
-                                VerticalAlignment="Bottom"
-                                Stroke="{DynamicResource BorderBrush}"
-                                StrokeThickness="1" />
-
-                            <Grid Grid.Column="1">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                    <RowDefinition />
-                                </Grid.RowDefinitions>
-
-                                <Label HorizontalAlignment="Stretch" VerticalAlignment="Center">
-                                    <TextBlock>
-                                        <Run Text="{Binding LastName}" />
-                                        <Run Text=" " />
-                                        <Run Text="{Binding FirstName}" />
-                                        <Run Text=" " />
-                                        <Run Text="{Binding MiddleName}" />
-                                    </TextBlock>
-                                </Label>
-
-                                <Label Grid.Row="1" Content="{Binding Position.Name}" />
-
-                                <Label Grid.Row="2" Content="{Binding Department.Name}" />
-                            </Grid>
-                        </Grid>
-
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-
-                            <Label>
-                                <TextBlock>
-                                    <Run Text="Почта: " />
-                                    <Run Text="{Binding Email}" />
-                                </TextBlock>
-                            </Label>
-
-                            <Label Grid.Row="1">
-                                <TextBlock>
-                                    <Run Text="Телефон: " />
-                                    <Run Text="{Binding PhoneNumber}" />
-                                </TextBlock>
-                            </Label>
-
-                            <Label Grid.Row="2">
-                                <TextBlock TextWrapping="Wrap">
-                                    <Run Text="Адрес: " />
-                                    <Run Text="{Binding Address.Name}" />
-                                </TextBlock>
-                            </Label>
-                        </Grid>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Button
-            x:Name="BtnShowFiredEployees"
-            Grid.Row="2"
-            Margin="8,8,30,8"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.CornerRadius="5"
-            Click="ShowFiredEployees"
-            Content="Показать уволенных сотрудников"
-            Style="{DynamicResource ButtonTransparent}" />
-
-        <Button
-            x:Name="BtnShowEployees"
-            Grid.Row="2"
-            Margin="8,8,30,8"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            mah:ControlsHelper.CornerRadius="5"
-            Click="ShowEployees"
-            Content="Показать сотрудников"
-            Style="{DynamicResource ButtonTransparent}"
-            Visibility="Collapsed" />
-
-        <views:EmployeeAddView
-            x:Name="EmployeeAddView"
+        <views:ApplicantAddView
+            x:Name="ApplicantAddView"
             Grid.RowSpan="3"
-            IsVisibleChanged="EmployeeAddViewClosed"
+            IsVisibleChanged="ApplicantAddViewClosed"
             Visibility="Collapsed" />
 
-        <views:EmployeeEditView
-            x:Name="EmployeeEditView"
+        <views:ApplicantEditView
+            x:Name="ApplicantEditView"
             Grid.RowSpan="3"
-            IsVisibleChanged="EmployeeAddViewClosed"
+            IsVisibleChanged="ApplicantAddViewClosed"
             Visibility="Collapsed" />
 
-        <views:EmployeeFullInfoView
-            x:Name="EmployeeFullInfoView"
+        <views:ApplicantFullInfoView
+            x:Name="ApplicantFullInfoView"
             Grid.RowSpan="3"
             Visibility="Collapsed" />
     </Grid>

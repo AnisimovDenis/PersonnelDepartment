@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="PersonnelDepartment.Views.Manager.EmployeeEditView"
+    x:Class="PersonnelDepartment.Views.Manager.ApplicantFullInfoView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="750"
     d:DesignWidth="1080"
-    IsVisibleChanged="OpenEditEmployee"
+    IsVisibleChanged="OpenFullInfoApplicant"
     mc:Ignorable="d">
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -46,22 +46,19 @@
             <Label
                 Grid.ColumnSpan="2"
                 Margin="16,32,16,12"
-                Content="Изменение сотрудника"
+                Content="Полная информация о соискателе"
                 Foreground="White"
                 Style="{DynamicResource LabelHeadline}" />
         </Grid>
 
         <Border
             Grid.Row="2"
-            Margin="20,20,20,80"
+            Margin="20,20,20,20"
             BorderBrush="{DynamicResource BorderBrush}"
             BorderThickness="1"
             CornerRadius="5" />
 
-        <Grid
-            Grid.Row="2"
-            Margin="25"
-            VerticalAlignment="Center">
+        <Grid Grid.Row="2" Margin="25">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition />
@@ -73,14 +70,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 
                 <Image
                     x:Name="ImgPhoto"
-                    Grid.RowSpan="2"
+                    Grid.RowSpan="3"
                     Width="150"
                     Height="150">
                     <Image.Source>
@@ -91,14 +88,6 @@
                         </Binding>
                     </Image.Source>
                 </Image>
-
-                <Button
-                    Grid.Row="2"
-                    Width="175"
-                    VerticalAlignment="Center"
-                    mah:ControlsHelper.CornerRadius="5"
-                    Click="LoadPhoto"
-                    Content="Загрузить фото" />
 
                 <Grid Grid.Column="1">
                     <Grid.ColumnDefinitions>
@@ -111,6 +100,7 @@
                         x:Name="TbLastName"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Фамилия"
+                        IsEnabled="False"
                         Text="{Binding LastName}" />
 
                     <TextBox
@@ -118,12 +108,14 @@
                         Grid.Column="1"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Имя"
+                        IsEnabled="False"
                         Text="{Binding FirstName}" />
 
                     <TextBox
                         Grid.Column="2"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Отчество"
+                        IsEnabled="False"
                         Text="{Binding MiddleName}" />
                 </Grid>
 
@@ -134,20 +126,20 @@
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <DatePicker
+                    <TextBox
                         x:Name="DpBirthDate"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Дата рождения"
-                        DisplayDate="01/01/2020"
-                        SelectedDate="{Binding BirthDate}" />
+                        IsEnabled="False"
+                        Text="{Binding BirthDate}" />
 
-                    <ComboBox
+                    <TextBox
                         x:Name="CbGender"
                         Grid.Column="1"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Пол"
-                        DisplayMemberPath="Name"
-                        SelectedItem="{Binding Gender}" />
+                        IsEnabled="False"
+                        Text="{Binding Gender.Name}" />
 
                     <Grid Grid.Column="2">
                         <Grid.ColumnDefinitions>
@@ -159,6 +151,7 @@
                             x:Name="TbPassportSeries"
                             mah:ControlsHelper.CornerRadius="5"
                             mah:TextBoxHelper.Watermark="Серия"
+                            IsEnabled="False"
                             Text="{Binding PassportSeries}" />
 
                         <TextBox
@@ -166,15 +159,17 @@
                             Grid.Column="2"
                             mah:ControlsHelper.CornerRadius="5"
                             mah:TextBoxHelper.Watermark="Номер"
+                            IsEnabled="False"
                             Text="{Binding PassportNumber}" />
 
                         <Label
                             Grid.ColumnSpan="2"
-                            Margin="0"
+                            Margin="0,0,0,-8"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom"
                             Content="Паспортные данные"
-                            FontSize="10" />
+                            FontSize="10"
+                            IsEnabled="False" />
                     </Grid>
                 </Grid>
 
@@ -189,6 +184,7 @@
                         x:Name="TbNumberPhone"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Телефон"
+                        IsEnabled="False"
                         Text="{Binding PhoneNumber}" />
 
                     <TextBox
@@ -196,6 +192,7 @@
                         Grid.Column="1"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Почта"
+                        IsEnabled="False"
                         Text="{Binding Email}" />
 
                     <Grid Grid.Column="2">
@@ -204,97 +201,26 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
 
-                        <ComboBox
+                        <TextBox
                             x:Name="CbAdress"
+                            VerticalAlignment="Stretch"
                             mah:ControlsHelper.CornerRadius="5"
                             mah:TextBoxHelper.Watermark="Адресс"
-                            DisplayMemberPath="Name"
-                            IsEditable="True"
-                            SelectedItem="{Binding Address}" />
-
-                        <Button
-                            Grid.Column="1"
-                            Width="30"
-                            Height="30"
-                            Padding="0"
-                            mah:ControlsHelper.CornerRadius="5"
-                            Click="AddAddress">
-                            <Button.ToolTip>
-                                <Label
-                                    Margin="0"
-                                    Content="Добавить адрес"
-                                    FontSize="16" />
-                            </Button.ToolTip>
-                            <iconPack:Material Kind="Plus" />
-                        </Button>
+                            IsEnabled="False"
+                            Text="{Binding Address.Name}" />
                     </Grid>
                 </Grid>
             </Grid>
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <ComboBox
-                        x:Name="CbDepartment"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="Отдел"
-                        DisplayMemberPath="Name"
-                        SelectedItem="{Binding Department}" />
-
-                    <Grid Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <ComboBox
-                            x:Name="CbPosition"
-                            mah:ControlsHelper.CornerRadius="5"
-                            mah:TextBoxHelper.Watermark="Должность"
-                            DisplayMemberPath="Name"
-                            IsEditable="True"
-                            SelectedItem="{Binding Position}" />
-
-                        <Button
-                            Grid.Column="1"
-                            Width="30"
-                            Height="30"
-                            Padding="0"
-                            mah:ControlsHelper.CornerRadius="5"
-                            Click="AddPosition">
-                            <Button.ToolTip>
-                                <Label
-                                    Margin="0"
-                                    Content="Добавить должность"
-                                    FontSize="16" />
-                            </Button.ToolTip>
-                            <iconPack:Material Kind="Plus" />
-                        </Button>
-                    </Grid>
-
-                    <TextBox
-                        x:Name="TbSalary"
-                        Grid.Column="2"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="Зарплата"
-                        Text="{Binding Salary}" />
-                </Grid>
-
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
@@ -303,67 +229,8 @@
                         x:Name="TbEducation"
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Образование"
+                        IsEnabled="False"
                         Text="{Binding Education}" />
-
-                    <TextBox
-                        x:Name="TbSNILS"
-                        Grid.Column="1"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="СНИЛС"
-                        Text="{Binding SNILS}" />
-
-                    <TextBox
-                        x:Name="TbINN"
-                        Grid.Column="2"
-                        mah:ControlsHelper.CornerRadius="5"
-                        mah:TextBoxHelper.Watermark="ИНН"
-                        Text="{Binding INN}" />
-                </Grid>
-
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-
-                        <Button
-                            x:Name="BtnMilitaryId"
-                            Width="auto"
-                            HorizontalAlignment="Stretch"
-                            mah:ControlsHelper.CornerRadius="5"
-                            Click="LoadMilitaryId"
-                            Content="Загрузить военный билет" />
-
-                        <Label Grid.Column="1">
-                            <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgMilitaryId"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="MilitaryId">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
-                            </Label.ToolTip>
-                            <Label.Content>
-                                <iconPack:Material
-                                    Width="25"
-                                    Height="25"
-                                    Kind="Information" />
-                            </Label.Content>
-                        </Label>
-                    </Grid>
 
                     <Grid Grid.Column="1">
                         <Grid.ColumnDefinitions>
@@ -371,47 +238,106 @@
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Button
-                            x:Name="BtnMedicalCertificate"
-                            Width="auto"
-                            HorizontalAlignment="Stretch"
+                        <TextBox
+                            x:Name="CbPosition"
                             mah:ControlsHelper.CornerRadius="5"
-                            Click="LoadMedicalCertificate"
-                            Content="Загрузить медицинскую карту" />
-
-                        <Label Grid.Column="1">
-                            <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgMedicalCertificate"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="MedicalCertificate">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
-                            </Label.ToolTip>
-                            <Label.Content>
-                                <iconPack:Material
-                                    Width="25"
-                                    Height="25"
-                                    Kind="Information" />
-                            </Label.Content>
-                        </Label>
+                            mah:TextBoxHelper.Watermark="Должность"
+                            IsEnabled="False"
+                            Text="{Binding Position.Name}" />
                     </Grid>
                 </Grid>
 
-                <Button
-                    Grid.Row="3"
-                    Width="250"
-                    Margin="8,8,8,-8"
-                    mah:ControlsHelper.CornerRadius="5"
-                    Click="Edit"
-                    Content="Изменить" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox
+                        x:Name="TbSNILS"
+                        Grid.Column="0"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="СНИЛС"
+                        IsEnabled="False"
+                        Text="{Binding SNILS}" />
+
+                    <TextBox
+                        x:Name="TbINN"
+                        Grid.Column="2"
+                        mah:ControlsHelper.CornerRadius="5"
+                        mah:TextBoxHelper.Watermark="ИНН"
+                        IsEnabled="False"
+                        Text="{Binding INN}" />
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        x:Name="ImgMilitaryId"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="MilitaryId">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Column="2"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="MedicalCertificate">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="CertificateOfGoodConduct">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+
+                    <Image
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="250"
+                        Height="150"
+                        Margin="8">
+                        <Image.Source>
+                            <Binding Path="NarcologicalCertificate">
+                                <Binding.TargetNullValue>
+                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                </Binding.TargetNullValue>
+                            </Binding>
+                        </Image.Source>
+                    </Image>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

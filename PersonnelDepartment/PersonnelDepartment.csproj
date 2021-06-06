@@ -225,6 +225,18 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
+    <Compile Include="Views\Manager\ApplicantAddView.xaml.cs">
+      <DependentUpon>ApplicantAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ApplicantEditView.xaml.cs">
+      <DependentUpon>ApplicantEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ApplicantFullInfoView.xaml.cs">
+      <DependentUpon>ApplicantFullInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manager\ApplicantListView.xaml.cs">
+      <DependentUpon>ApplicantListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\EmployeeAddView.xaml.cs">
       <DependentUpon>EmployeeAddView.xaml</DependentUpon>
     </Compile>
@@ -248,6 +260,9 @@
     </Compile>
     <Compile Include="Windows\Manager\WinManager.xaml.cs">
       <DependentUpon>WinManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Manager\WinTransfer.xaml.cs">
+      <DependentUpon>WinTransfer.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +304,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Manager\ApplicantAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\ApplicantEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\ApplicantFullInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Manager\ApplicantListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Manager\EmployeeAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -318,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Manager\WinManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\Manager\WinTransfer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

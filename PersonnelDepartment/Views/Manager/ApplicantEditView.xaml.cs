@@ -1,9 +1,9 @@
 ﻿using PersonnelDepartment.Data;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using PersonnelDepartment.Windows.Additionally;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity.Validation;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,20 +21,34 @@ using System.Windows.Shapes;
 namespace PersonnelDepartment.Views.Manager
 {
     /// <summary>
-    /// Interaction logic for EmployeeAddView.xaml
+    /// Interaction logic for ApplicantEditView.xaml
     /// </summary>
-    public partial class EmployeeAddView : UserControl
+    public partial class ApplicantEditView : UserControl
     {
-        Employee employee;
-        bool flagMC = false;
-        bool flagMID = false;
-
-        public EmployeeAddView()
+        public ApplicantEditView()
         {
             InitializeComponent();
         }
+        private void Back(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
 
-        private void LoadPhoto(object sender, RoutedEventArgs e)
+        private void AddPosition(object sender, RoutedEventArgs e)
+        {
+            new WinAddPosition().ShowDialog();
+
+            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
+        }
+
+        private void AddAddress(object sender, RoutedEventArgs e)
+        {
+            new WinAddAddress().ShowDialog();
+
+            CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
+        }
+
+        private void LoadMilitaryId(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -55,30 +69,38 @@ namespace PersonnelDepartment.Views.Manager
             {
                 // Open document 
                 string filename = dlg.FileName;
-                ImgPhoto.Source = new BitmapImage(new Uri(filename));
-                employee.Photo = File.ReadAllBytes(filename);
+                ImgMilitaryId.Source = new BitmapImage(new Uri(filename));
+                Entity.Applicant.MilitaryId = File.ReadAllBytes(filename);
             }
         }
 
-        private void Back(object sender, RoutedEventArgs e)
+        private void LoadMedicalCertificate(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Collapsed;
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
+                Entity.Applicant.MedicalCertificate = File.ReadAllBytes(filename);
+            }
         }
 
-        private void OpenAddEmployee(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            employee = new Employee();
-            DataContext = employee;
-
-            CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
-            CbDepartment.ItemsSource = DataService.GetContext().Department.Where(d => d.Name != "Все").ToList();
-            CbGender.ItemsSource = DataService.GetContext().Gender.ToList();
-            CbPosition.ItemsSource = DataService.GetContext().Position.Where(p => p.Name != "Все").ToList();
-
-            DpBirthDate.SelectedDate = DateTime.Now;
-        }
-
-        private void Add(object sender, RoutedEventArgs e)
+        private void Edit(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TbEducation.Text))
             {
@@ -120,11 +142,6 @@ namespace PersonnelDepartment.Views.Manager
                 MB.MessageBoxInfo("Заполните серию паспорта");
                 TbPassportSeries.Focus();
             }
-            else if (string.IsNullOrWhiteSpace(TbSalary.Text))
-            {
-                MB.MessageBoxInfo("Заполните зарплату");
-                TbSalary.Focus();
-            }
             else if (string.IsNullOrWhiteSpace(TbSNILS.Text))
             {
                 MB.MessageBoxInfo("Заполните СНИЛС");
@@ -134,11 +151,6 @@ namespace PersonnelDepartment.Views.Manager
             {
                 MB.MessageBoxInfo("Заполните адрес");
                 CbAdress.Focus();
-            }
-            else if (string.IsNullOrWhiteSpace(CbDepartment.Text))
-            {
-                MB.MessageBoxInfo("Заполните отдел");
-                CbDepartment.Focus();
             }
             else if (string.IsNullOrWhiteSpace(CbGender.Text))
             {
@@ -150,23 +162,12 @@ namespace PersonnelDepartment.Views.Manager
                 MB.MessageBoxInfo("Заполните должность");
                 CbPosition.Focus();
             }
-            else if (CbGender.Text == "Мужчина" && flagMID == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию военного билета");
-                BtnMilitaryId.Focus();
-            }
-            else if (flagMC == false)
-            {
-                MB.MessageBoxInfo("Добавьте фотографию медицинской карты");
-                BtnMedicalCertificate.Focus();
-            }
             else
             {
                 try
                 {
-                    DataService.GetContext().Employee.Add(employee);
                     DataService.GetContext().SaveChanges();
-                    MB.MessageBoxInfo("Сотрудник успешно добавлен");
+                    MB.MessageBoxInfo("Соискатель успешно изменен");
                 }
                 catch
                 {
@@ -175,7 +176,7 @@ namespace PersonnelDepartment.Views.Manager
             }
         }
 
-        private void LoadMilitaryId(object sender, RoutedEventArgs e)
+        private void LoadCertificateOfGoodConduct(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -196,13 +197,12 @@ namespace PersonnelDepartment.Views.Manager
             {
                 // Open document 
                 string filename = dlg.FileName;
-                ImgMilitaryId.Source = new BitmapImage(new Uri(filename));
-                employee.MilitaryId = File.ReadAllBytes(filename);
-                flagMID = true;
+                ImgCertificateOfGoodConduct.Source = new BitmapImage(new Uri(filename));
+                Entity.Applicant.CertificateOfGoodConduct = File.ReadAllBytes(filename);
             }
         }
 
-        private void LoadMedicalCertificate(object sender, RoutedEventArgs e)
+        private void LoadPhoto(object sender, RoutedEventArgs e)
         {
             // Create OpenFileDialog 
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
@@ -223,24 +223,46 @@ namespace PersonnelDepartment.Views.Manager
             {
                 // Open document 
                 string filename = dlg.FileName;
-                ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
-                employee.MedicalCertificate = File.ReadAllBytes(filename);
-                flagMC = true;
+                ImgPhoto.Source = new BitmapImage(new Uri(filename));
+                Entity.Applicant.Photo = File.ReadAllBytes(filename);
             }
         }
 
-        private void AddAddress(object sender, RoutedEventArgs e)
+        private void OpenAddApplicant(object sender, DependencyPropertyChangedEventArgs e)
         {
-            new WinAddAddress().ShowDialog();
+            DataContext = Entity.Applicant;
 
             CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
+            CbGender.ItemsSource = DataService.GetContext().Gender.ToList();
+            CbPosition.ItemsSource = DataService.GetContext().Position.Where(p => p.Name != "Все").ToList();
+
+            DpBirthDate.SelectedDate = DateTime.Now;
         }
 
-        private void AddPosition(object sender, RoutedEventArgs e)
+        private void LoadNarcologicalCertificate(object sender, RoutedEventArgs e)
         {
-            new WinAddPosition().ShowDialog();
+            // Create OpenFileDialog 
+            Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
 
-            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
+
+
+            // Set filter for file extension and default file extension 
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+
+
+            // Display OpenFileDialog by calling ShowDialog method 
+            Nullable<bool> result = dlg.ShowDialog();
+
+
+            // Get the selected file name and display in a TextBox 
+            if (result == true)
+            {
+                // Open document 
+                string filename = dlg.FileName;
+                ImgNarcologicalCertificate.Source = new BitmapImage(new Uri(filename));
+                Entity.Applicant.NarcologicalCertificate = File.ReadAllBytes(filename);
+            }
         }
     }
 }

@@ -24,18 +24,18 @@
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="12" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="IdAddress" Type="int" Nullable="false" />
-          <Property Name="PassportSeries" Type="nvarchar" MaxLength="4" />
-          <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" />
+          <Property Name="PassportSeries" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="PassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
           <Property Name="SNILS" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="INN" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="Photo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="Education" Type="nvarchar" MaxLength="40" Nullable="false" />
-          <Property Name="MilitaryId" Type="bit" Nullable="false" />
+          <Property Name="MilitaryId" Type="varbinary(max)" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MedicalCertificate" Type="varbinary(max)" />
           <Property Name="IdPosition" Type="int" Nullable="false" />
-          <Property Name="CertificateOfGoodConduct" Type="varbinary(max)" Nullable="false" />
-          <Property Name="NarcologicalCertificate" Type="varbinary(max)" Nullable="false" />
+          <Property Name="CertificateOfGoodConduct" Type="varbinary(max)" />
+          <Property Name="NarcologicalCertificate" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -66,7 +66,7 @@
           <Property Name="Education" Type="nvarchar" MaxLength="40" Nullable="false" />
           <Property Name="MilitaryId" Type="varbinary(max)" />
           <Property Name="IdGender" Type="int" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="varbinary(max)" />
+          <Property Name="MedicalCertificate" Type="varbinary(max)" />
           <Property Name="IdDepartment" Type="int" Nullable="false" />
           <Property Name="IdPosition" Type="int" Nullable="false" />
           <Property Name="Salary" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -198,36 +198,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Applicant" Relationship="Self.FK_Applicant_Address" FromRole="Address" ToRole="Applicant" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Address" FromRole="Address" ToRole="Employee" />
-        </EntityType>
-        <EntityType Name="Applicant">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="true" />
-          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdAddress" Type="Int32" Nullable="false" />
-          <Property Name="SNILS" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="INN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="Education" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="MilitaryId" Type="Boolean" Nullable="false" />
-          <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IdPosition" Type="Int32" Nullable="false" />
-          <Property Name="CertificateOfGoodConduct" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <Property Name="NarcologicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-          <NavigationProperty Name="Address" Relationship="Self.FK_Applicant_Address" FromRole="Applicant" ToRole="Address" />
-          <NavigationProperty Name="Gender" Relationship="Self.FK_Applicant_Gender" FromRole="Applicant" ToRole="Gender" />
-          <NavigationProperty Name="Position" Relationship="Self.FK_Applicant_Position" FromRole="Applicant" ToRole="Position" />
-          <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Applicant" Relationship="PersonnelDepartmentModel.FK_Applicant_Address" FromRole="Address" ToRole="Applicant" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -257,7 +229,6 @@
           <Property Name="Education" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MilitaryId" Type="Binary" Nullable="true" MaxLength="Max" FixedLength="false" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
-          <Property Name="MedicalСertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IdDepartment" Type="Int32" Nullable="false" />
           <Property Name="IdPosition" Type="Int32" Nullable="false" />
           <Property Name="Salary" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
@@ -270,6 +241,7 @@
           <Property Name="PassportSeries" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
           <Property Name="PassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
           <Property Name="IsFired" Type="Boolean" />
+          <Property Name="MedicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -277,8 +249,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Applicant" Relationship="Self.FK_Applicant_Gender" FromRole="Gender" ToRole="Applicant" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Gender" FromRole="Gender" ToRole="Employee" />
+          <NavigationProperty Name="Applicant" Relationship="PersonnelDepartmentModel.FK_Applicant_Gender" FromRole="Gender" ToRole="Applicant" />
         </EntityType>
         <EntityType Name="Position">
           <Key>
@@ -286,8 +258,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Applicant" Relationship="Self.FK_Applicant_Position" FromRole="Position" ToRole="Applicant" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_Position" FromRole="Position" ToRole="Employee" />
+          <NavigationProperty Name="Applicant" Relationship="PersonnelDepartmentModel.FK_Applicant_Position" FromRole="Position" ToRole="Applicant" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -318,18 +290,6 @@
           <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_User" FromRole="User" ToRole="Employee" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
-        <Association Name="FK_Applicant_Address">
-          <End Role="Address" Type="Self.Address" Multiplicity="1" />
-          <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Address">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Applicant">
-              <PropertyRef Name="IdAddress" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Employee_Address">
           <End Role="Address" Type="Self.Address" Multiplicity="1" />
           <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
@@ -339,30 +299,6 @@
             </Principal>
             <Dependent Role="Employee">
               <PropertyRef Name="IdAddress" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Applicant_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
-          <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Gender">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Applicant">
-              <PropertyRef Name="IdGender" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Applicant_Position">
-          <End Role="Position" Type="Self.Position" Multiplicity="1" />
-          <End Role="Applicant" Type="Self.Applicant" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Position">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Applicant">
-              <PropertyRef Name="IdPosition" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -428,7 +364,6 @@
         </Association>
         <EntityContainer Name="BaseContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
-          <EntitySet Name="Applicant" EntityType="Self.Applicant" />
           <EntitySet Name="Department" EntityType="Self.Department" />
           <EntitySet Name="Employee" EntityType="Self.Employee" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
@@ -436,21 +371,9 @@
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <AssociationSet Name="FK_Applicant_Address" Association="Self.FK_Applicant_Address">
-            <End Role="Address" EntitySet="Address" />
-            <End Role="Applicant" EntitySet="Applicant" />
-          </AssociationSet>
           <AssociationSet Name="FK_Employee_Address" Association="Self.FK_Employee_Address">
             <End Role="Address" EntitySet="Address" />
             <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Applicant_Gender" Association="Self.FK_Applicant_Gender">
-            <End Role="Gender" EntitySet="Gender" />
-            <End Role="Applicant" EntitySet="Applicant" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Applicant_Position" Association="Self.FK_Applicant_Position">
-            <End Role="Position" EntitySet="Position" />
-            <End Role="Applicant" EntitySet="Applicant" />
           </AssociationSet>
           <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
             <End Role="Department" EntitySet="Department" />
@@ -472,7 +395,84 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="User" EntitySet="User" />
           </AssociationSet>
+          <EntitySet Name="Applicant" EntityType="PersonnelDepartmentModel.Applicant" />
+          <AssociationSet Name="FK_Applicant_Address" Association="PersonnelDepartmentModel.FK_Applicant_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Applicant" EntitySet="Applicant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Applicant_Gender" Association="PersonnelDepartmentModel.FK_Applicant_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Applicant" EntitySet="Applicant" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Applicant_Position" Association="PersonnelDepartmentModel.FK_Applicant_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Applicant" EntitySet="Applicant" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Applicant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="IdAddress" Type="Int32" Nullable="false" />
+          <Property Name="PassportSeries" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PassportNumber" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="SNILS" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="INN" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Education" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="MilitaryId" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IdGender" Type="Int32" Nullable="false" />
+          <Property Name="IdPosition" Type="Int32" Nullable="false" />
+          <Property Name="CertificateOfGoodConduct" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="NarcologicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Address" Relationship="PersonnelDepartmentModel.FK_Applicant_Address" FromRole="Applicant" ToRole="Address" />
+          <NavigationProperty Name="Gender" Relationship="PersonnelDepartmentModel.FK_Applicant_Gender" FromRole="Applicant" ToRole="Gender" />
+          <NavigationProperty Name="Position" Relationship="PersonnelDepartmentModel.FK_Applicant_Position" FromRole="Applicant" ToRole="Position" />
+          <Property Name="MedicalCertificate" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Applicant_Address">
+          <End Type="PersonnelDepartmentModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="PersonnelDepartmentModel.Applicant" Role="Applicant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Applicant">
+              <PropertyRef Name="IdAddress" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Applicant_Gender">
+          <End Type="PersonnelDepartmentModel.Gender" Role="Gender" Multiplicity="1" />
+          <End Type="PersonnelDepartmentModel.Applicant" Role="Applicant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Applicant">
+              <PropertyRef Name="IdGender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Applicant_Position">
+          <End Type="PersonnelDepartmentModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="PersonnelDepartmentModel.Applicant" Role="Applicant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Applicant">
+              <PropertyRef Name="IdPosition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -484,32 +484,6 @@
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Applicant">
-            <EntityTypeMapping TypeName="PersonnelDepartmentModel.Applicant">
-              <MappingFragment StoreEntitySet="Applicant">
-                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
-                <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
-                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
-                <ScalarProperty Name="INN" ColumnName="INN" />
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Education" ColumnName="Education" />
-                <ScalarProperty Name="MilitaryId" ColumnName="MilitaryId" />
-                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
-                <ScalarProperty Name="MedicalСertificate" ColumnName="MedicalСertificate" />
-                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
-                <ScalarProperty Name="CertificateOfGoodConduct" ColumnName="CertificateOfGoodConduct" />
-                <ScalarProperty Name="NarcologicalCertificate" ColumnName="NarcologicalCertificate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -526,6 +500,7 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="PersonnelDepartmentModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="MedicalCertificate" ColumnName="MedicalCertificate" />
                 <ScalarProperty Name="IsFired" ColumnName="IsFired" />
                 <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
                 <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
@@ -543,7 +518,6 @@
                 <ScalarProperty Name="Education" ColumnName="Education" />
                 <ScalarProperty Name="MilitaryId" ColumnName="MilitaryId" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
-                <ScalarProperty Name="MedicalСertificate" ColumnName="MedicalСertificate" />
                 <ScalarProperty Name="IdDepartment" ColumnName="IdDepartment" />
                 <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
@@ -593,6 +567,32 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applicant">
+            <EntityTypeMapping TypeName="PersonnelDepartmentModel.Applicant">
+              <MappingFragment StoreEntitySet="Applicant">
+                <ScalarProperty Name="MedicalCertificate" ColumnName="MedicalCertificate" />
+                <ScalarProperty Name="NarcologicalCertificate" ColumnName="NarcologicalCertificate" />
+                <ScalarProperty Name="CertificateOfGoodConduct" ColumnName="CertificateOfGoodConduct" />
+                <ScalarProperty Name="IdPosition" ColumnName="IdPosition" />
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="MilitaryId" ColumnName="MilitaryId" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="SNILS" ColumnName="SNILS" />
+                <ScalarProperty Name="PassportNumber" ColumnName="PassportNumber" />
+                <ScalarProperty Name="PassportSeries" ColumnName="PassportSeries" />
+                <ScalarProperty Name="IdAddress" ColumnName="IdAddress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -70,7 +70,7 @@ namespace PersonnelDepartment.Views.Manager
 
                 LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.IsFired != true).ToList();
 
-                MB.MessageBoxInfo("Вы успешно удалили сотрудника");
+                MB.MessageBoxInfo($"Вы успешно удалили сотрудника {employee.LastName} {employee.FirstName} {employee.MiddleName}");
             }
         }
 

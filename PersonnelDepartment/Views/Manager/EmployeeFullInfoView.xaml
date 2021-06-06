@@ -58,10 +58,7 @@
             BorderThickness="1"
             CornerRadius="5" />
 
-        <Grid
-            Grid.Row="2"
-            Margin="25"
-            VerticalAlignment="Center">
+        <Grid Grid.Row="2" Margin="25">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition />
@@ -73,9 +70,9 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
 
                 <Image
@@ -167,7 +164,7 @@
 
                         <Label
                             Grid.ColumnSpan="2"
-                            Margin="0"
+                            Margin="0,0,0,-8"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Bottom"
                             Content="Паспортные данные"
@@ -217,9 +214,9 @@
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="75" />
-                    <RowDefinition Height="250" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Grid>
@@ -298,8 +295,8 @@
 
                     <Image
                         x:Name="ImgMilitaryId"
-                        Width="350"
-                        Height="225">
+                        Width="450"
+                        Height="250">
                         <Image.Source>
                             <Binding Path="MilitaryId">
                                 <Binding.TargetNullValue>
@@ -311,10 +308,10 @@
 
                     <Image
                         Grid.Column="2"
-                        Width="350"
-                        Height="225">
+                        Width="450"
+                        Height="250">
                         <Image.Source>
-                            <Binding Path="MedicalСertificate">
+                            <Binding Path="MedicalCertificate">
                                 <Binding.TargetNullValue>
                                     <ImageSource>/Resources/no_image.jpg</ImageSource>
                                 </Binding.TargetNullValue>

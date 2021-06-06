@@ -26,7 +26,6 @@ namespace PersonnelDepartment.Data
         }
     
         public virtual DbSet<Address> Address { get; set; }
-        public virtual DbSet<Applicant> Applicant { get; set; }
         public virtual DbSet<Department> Department { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
@@ -34,5 +33,6 @@ namespace PersonnelDepartment.Data
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Applicant> Applicant { get; set; }
     }
 }

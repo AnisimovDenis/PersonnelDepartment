@@ -68,7 +68,7 @@ namespace PersonnelDepartment.Views.Manager
             CbAdress.ItemsSource = DataService.GetContext().Address.ToList();
             CbDepartment.ItemsSource = DataService.GetContext().Department.Where(d => d.Name != "Все").ToList();
             CbGender.ItemsSource = DataService.GetContext().Gender.ToList();
-            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
+            CbPosition.ItemsSource = DataService.GetContext().Position.Where(p => p.Name != "Все").ToList();
 
             DpBirthDate.SelectedDate = DateTime.Now;
         }
@@ -206,8 +206,8 @@ namespace PersonnelDepartment.Views.Manager
             {
                 // Open document 
                 string filename = dlg.FileName;
-                ImgMedicalСertificate.Source = new BitmapImage(new Uri(filename));
-                Entity.Employee.MedicalСertificate = File.ReadAllBytes(filename);
+                ImgMedicalCertificate.Source = new BitmapImage(new Uri(filename));
+                Entity.Employee.MedicalCertificate = File.ReadAllBytes(filename);
             }
         }
 
