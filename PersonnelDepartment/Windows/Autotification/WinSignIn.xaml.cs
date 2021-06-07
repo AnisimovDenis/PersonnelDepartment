@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
 using PersonnelDepartment.Services;
+using PersonnelDepartment.Windows.Employee;
 using PersonnelDepartment.Windows.Manager;
 using System;
 using System.Linq;
@@ -73,6 +74,10 @@ namespace PersonnelDepartment.Windows.Autotification
                                 new WinManager().Show();
                                 this.Close();
                                 break;
+                            case 2:
+                                new WinEmployee().Show();
+                                this.Close();
+                                break;
                         }
                         count = 0;
                     }
@@ -118,7 +123,7 @@ namespace PersonnelDepartment.Windows.Autotification
 
         private void RecoveryPassword(object sender, RoutedEventArgs e)
         {
-            Employee employee = DataService.GetContext().Employee.FirstOrDefault(emp => emp.Email == TbEmail.Text);
+            var employee = DataService.GetContext().Employee.FirstOrDefault(emp => emp.Email == TbEmail.Text);
             if (string.IsNullOrWhiteSpace(TbEmail.Text))
             {
                 MB.MessageBoxInfo("Введите почту");
