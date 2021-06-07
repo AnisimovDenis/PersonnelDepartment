@@ -131,7 +131,7 @@
                         mah:ControlsHelper.CornerRadius="5"
                         mah:TextBoxHelper.Watermark="Дата рождения"
                         IsEnabled="False"
-                        Text="{Binding BirthDate}" />
+                        Text="{Binding BirthDate, StringFormat='{}{0:dd.MM.yyyy}'}" />
 
                     <TextBox
                         x:Name="CbGender"

@@ -257,9 +257,17 @@
                             </Grid.ColumnDefinitions>
 
                             <Image
-                                Width="125"
-                                Margin="8"
-                                Source="/Resources/BackgroundMainMenu.jpg" />
+                                Width="150"
+                                Height="150"
+                                Margin="8">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            <ImageSource>/Resources/defaultphoto.png</ImageSource>
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
 
                             <Rectangle
                                 Grid.ColumnSpan="2"

@@ -47,7 +47,7 @@ namespace PersonnelDepartment.Windows.Manager
                 try
                 {
                     var applicant = Entity.Applicant;
-                    var employee = new Employee()
+                    var employee = new Data.Employee()
                     {
                         Address = applicant.Address,
                         BirthDate = applicant.BirthDate,
