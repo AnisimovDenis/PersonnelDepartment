@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
+using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,12 @@ namespace PersonnelDepartment.Windows.Employee
             LblCurrent.Content = "Количество работников - " + (CbDepartment.SelectedItem as Department).QuantityAtTheMoment;
             LblTotal.Content = "Общее количество мест - " + (CbDepartment.SelectedItem as Department).TotalAmount;
             LblFree.Content = "Свободно мест - " + ((CbDepartment.SelectedItem as Department).TotalAmount - (CbDepartment.SelectedItem as Department).QuantityAtTheMoment);
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            if (MB.MessageBoxQuestion("Вы действительно хотите выйти?"))
+                App.Current.Shutdown();
         }
     }
 }

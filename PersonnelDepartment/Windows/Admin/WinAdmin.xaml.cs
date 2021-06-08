@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,6 +34,12 @@ namespace PersonnelDepartment.Windows.Admin
         private void OpenUserList(object sender, RoutedEventArgs e)
         {
             UserListView.Visibility = Visibility.Visible;
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            if (MB.MessageBoxQuestion("Вы действительно хотите выйти?"))
+                App.Current.Shutdown();
         }
     }
 }

@@ -26,16 +26,6 @@
 
             <Rectangle Grid.ColumnSpan="2" Fill="{DynamicResource Main}" />
 
-            <Button
-                Grid.Column="1"
-                Margin="16,32,16,12"
-                HorizontalAlignment="Right"
-                mah:ControlsHelper.CornerRadius="5"
-                Background="White"
-                Click="Export"
-                Content="Экспорт"
-                Foreground="{StaticResource Foreground}" />
-
             <Image
                 Width="200"
                 Margin="45,16"

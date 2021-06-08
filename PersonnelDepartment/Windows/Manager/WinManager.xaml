@@ -249,6 +249,7 @@
                         FontFamily="Century Gothic"
                         FontSize="18"
                         Foreground="White"
+                        Click="Exit"
                         Opacity="0.9"
                         Style="{DynamicResource ButtonRevealStyle}">
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">

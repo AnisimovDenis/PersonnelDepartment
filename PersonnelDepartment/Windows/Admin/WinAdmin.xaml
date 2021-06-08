@@ -197,6 +197,7 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Width="210"
+                    Click="Exit"
                     Height="100"
                     Margin="5,0,0,0"
                     fw:PointerTracker.Enabled="True"

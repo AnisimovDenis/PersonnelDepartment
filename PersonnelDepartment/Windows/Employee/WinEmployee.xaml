@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFE2E2E2" />
 
-        <Grid d:IsLocked="True" ClipToBounds="True">
+        <Grid ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="100" />
@@ -202,6 +202,7 @@
                     fw:PointerTracker.Enabled="True"
                     fw:RevealElement.MouseOverBackground="DimGray"
                     Background="Gray"
+                    Click="Exit"
                     FontFamily="Century Gothic"
                     FontSize="18"
                     Foreground="White"
