@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Column="1" Fill="#FFE2E2E2" />
 
-        <Grid ClipToBounds="True">
+        <Grid d:IsLocked="True" ClipToBounds="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="100" />
@@ -234,6 +234,140 @@
                     </Grid>
                 </Button>
             </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.ColumnSpan="4"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Количество мест" />
+                    <Rectangle
+                        Grid.Row="3"
+                        Grid.ColumnSpan="4"
+                        Margin="20,5"
+                        VerticalAlignment="Bottom"
+                        Stroke="Black"
+                        StrokeThickness="1" />
+                    <Rectangle
+                        Grid.Row="1"
+                        Grid.RowSpan="3"
+                        Margin="20,5"
+                        HorizontalAlignment="Left"
+                        Stroke="Black"
+                        StrokeThickness="1" />
+
+                    <Label
+                        Grid.Row="3"
+                        Margin="20,0"
+                        VerticalAlignment="Top"
+                        Content="10" />
+
+                    <Label
+                        Grid.Row="2"
+                        Margin="20,0"
+                        VerticalAlignment="Top"
+                        Content="20" />
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="20,0"
+                        VerticalAlignment="Top"
+                        Content="30" />
+
+                    <Rectangle
+                        x:Name="RecTotal"
+                        Grid.RowSpan="4"
+                        Grid.Column="1"
+                        Width="125"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#FF007ABF" />
+                                <GradientStop Offset="1" Color="#FF0041B2" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.ToolTip>
+                            <Label x:Name="LblTotal" Content="Общее количество мест" />
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+
+                    <Rectangle
+                        x:Name="RecCurrent"
+                        Grid.RowSpan="4"
+                        Grid.Column="2"
+                        Width="125"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#FF1985C6" />
+                                <GradientStop Offset="1" Color="#FF19A7C6" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.ToolTip>
+                            <Label x:Name="LblCurrent" Content="Количество работников" />
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+
+                    <Rectangle
+                        x:Name="RecFree"
+                        Grid.RowSpan="4"
+                        Grid.Column="3"
+                        Width="125"
+                        Margin="10"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                                <GradientStop Offset="0" Color="#FF00A8C2" />
+                                <GradientStop Offset="1" Color="#FF007BC2" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                        <Rectangle.ToolTip>
+                            <Label x:Name="LblFree" Content="Свободно мест" />
+                        </Rectangle.ToolTip>
+                    </Rectangle>
+                </Grid>
+
+                <ComboBox
+                    x:Name="CbDepartment"
+                    Grid.Row="1"
+                    Width="250"
+                    HorizontalAlignment="Center"
+                    mah:TextBoxHelper.Watermark="Отделы"
+                    DisplayMemberPath="Name"
+                    SelectionChanged="Select" />
+            </Grid>
+
         </Grid>
 
         <views:EmployeeListView

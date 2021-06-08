@@ -26,6 +26,16 @@
 
             <Rectangle Grid.ColumnSpan="2" Fill="{DynamicResource Main}" />
 
+            <Button
+                Grid.Column="1"
+                Margin="16,32,16,12"
+                HorizontalAlignment="Right"
+                mah:ControlsHelper.CornerRadius="5"
+                Background="White"
+                Click="Export"
+                Content="Экспорт"
+                Foreground="{StaticResource Foreground}" />
+
             <Image
                 Width="200"
                 Margin="45,16"
@@ -70,9 +80,9 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
                 </Grid.RowDefinitions>
 
                 <Image
@@ -214,8 +224,8 @@
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="70" />
+                    <RowDefinition Height="70" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
@@ -307,6 +317,7 @@
                     </Image>
 
                     <Image
+                        x:Name="ImgMedicalCertificate"
                         Grid.Column="2"
                         Width="450"
                         Height="250">

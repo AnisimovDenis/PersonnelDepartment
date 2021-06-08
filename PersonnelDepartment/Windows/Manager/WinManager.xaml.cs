@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using PersonnelDepartment.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,22 @@ namespace PersonnelDepartment.Windows.Manager
         public WinManager()
         {
             InitializeComponent();
+
+            try
+            {
+                var departments = DataService.GetContext().Department.ToList();
+                foreach (var department in departments)
+                {
+                    department.QuantityAtTheMoment = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList().Count;
+                }
+                DataService.GetContext().SaveChanges();
+            }
+            catch
+            {
+
+            }
+
+            CbDepartment.ItemsSource = DataService.GetContext().Department.Where(d => d.Name != "Все").ToList();
         }
 
         private void OpenEmployeeList(object sender, RoutedEventArgs e)
@@ -38,6 +55,17 @@ namespace PersonnelDepartment.Windows.Manager
         private void OpenDepartmentList(object sender, RoutedEventArgs e)
         {
             DepartmentListView.Visibility = Visibility.Visible;
+        }
+
+        private void Select(object sender, SelectionChangedEventArgs e)
+        {
+            RecTotal.Height = Convert.ToDouble((CbDepartment.SelectedItem as Department).TotalAmount * 8);
+            RecCurrent.Height = Convert.ToDouble((CbDepartment.SelectedItem as Department).QuantityAtTheMoment * 8);
+            RecFree.Height = Convert.ToDouble((CbDepartment.SelectedItem as Department).TotalAmount * 8 - (CbDepartment.SelectedItem as Department).QuantityAtTheMoment * 8);
+
+            LblCurrent.Content = "Количество работников - " + (CbDepartment.SelectedItem as Department).QuantityAtTheMoment;
+            LblTotal.Content = "Общее количество мест - " + (CbDepartment.SelectedItem as Department).TotalAmount;
+            LblFree.Content = "Свободно мест - " + ((CbDepartment.SelectedItem as Department).TotalAmount - (CbDepartment.SelectedItem as Department).QuantityAtTheMoment);
         }
     }
 }
