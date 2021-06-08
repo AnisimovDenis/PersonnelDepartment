@@ -57,6 +57,7 @@
                 Style="{DynamicResource LabelHeadline}" />
 
             <Label
+                x:Name="LblHellover"
                 Grid.Row="2"
                 Margin="8"
                 HorizontalAlignment="Center"
@@ -240,10 +241,12 @@
         <views:AdminEmployeeListView
             x:Name="AdminEmployeeListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
         <views:UserListView
             x:Name="UserListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
     </Grid>
 </mah:MetroWindow>

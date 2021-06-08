@@ -8,5 +8,6 @@ namespace PersonnelDepartment.Entities
         public static Applicant Applicant { get; set; }
         public static Department Department { get; set; }
         public static User User { get; set; }
+        public static Employee CurrentEmployee { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using PersonnelDepartment.Windows.Admin;
 using PersonnelDepartment.Windows.Employee;
@@ -50,9 +51,9 @@ namespace PersonnelDepartment.Windows.Autotification
             }
             else
             {
-                var user = DataService.GetContext().User.FirstOrDefault(u => u.Login == TbLogin.Text);
+                var employee = DataService.GetContext().Employee.FirstOrDefault(u => u.User.Login == TbLogin.Text);
 
-                if (user == null)
+                if (employee == null)
                 {
                     MB.MessageBoxInfo("Введен неверно логин/пароль");
                     TbLogin.Focus();
@@ -60,7 +61,7 @@ namespace PersonnelDepartment.Windows.Autotification
                 }
                 else
                 {
-                    if (user.Password != PbPassword.Password)
+                    if (employee.User.Password != PbPassword.Password)
                     {
                         MB.MessageBoxInfo("Введен неверно логин/пароль");
                         TbLogin.Clear();
@@ -69,7 +70,8 @@ namespace PersonnelDepartment.Windows.Autotification
                     }
                     else
                     {
-                        switch (user.IdRole)
+                        Entity.CurrentEmployee = employee;
+                        switch (employee.User.IdRole)
                         {
                             case 1:
                                 new WinManager().Show();

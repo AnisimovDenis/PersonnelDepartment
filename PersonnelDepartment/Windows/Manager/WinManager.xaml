@@ -57,6 +57,7 @@
                 Style="{DynamicResource LabelHeadline}" />
 
             <Label
+                x:Name="LblHellover"
                 Grid.Row="2"
                 Margin="8"
                 HorizontalAlignment="Center"

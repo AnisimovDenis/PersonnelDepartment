@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,17 @@ namespace PersonnelDepartment.Windows.Admin
         public WinAdmin()
         {
             InitializeComponent();
+
+            var currentTime = DateTime.Now.TimeOfDay.TotalHours;
+
+            if (currentTime < 9 && currentTime > 4)
+                LblHellover.Content = $"Доброе утро, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 9 && currentTime < 18)
+                LblHellover.Content = $"Добрый день, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 18 && currentTime < 22)
+                LblHellover.Content = $"Добрый вечер, {Entity.CurrentEmployee.FirstName}!";
+            else
+                LblHellover.Content = $"Доброй ночи, {Entity.CurrentEmployee.FirstName}!";
         }
 
         private void OpenEmployeeList(object sender, RoutedEventArgs e)
@@ -40,6 +52,20 @@ namespace PersonnelDepartment.Windows.Admin
         {
             if (MB.MessageBoxQuestion("Вы действительно хотите выйти?"))
                 App.Current.Shutdown();
+        }
+
+        private void Update(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var currentTime = DateTime.Now.TimeOfDay.TotalHours;
+
+            if (currentTime < 9 && currentTime > 4)
+                LblHellover.Content = $"Доброе утро, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 9 && currentTime < 18)
+                LblHellover.Content = $"Добрый день, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 18 && currentTime < 22)
+                LblHellover.Content = $"Добрый вечер, {Entity.CurrentEmployee.FirstName}!";
+            else
+                LblHellover.Content = $"Доброй ночи, {Entity.CurrentEmployee.FirstName}!";
         }
     }
 }

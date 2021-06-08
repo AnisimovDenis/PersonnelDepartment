@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
+using PersonnelDepartment.Entities;
 using PersonnelDepartment.Services;
 using PersonnelDepartment.Windows.Additionally;
 using System;
@@ -40,6 +41,17 @@ namespace PersonnelDepartment.Windows.Manager
             {
 
             }
+
+            var currentTime = DateTime.Now.TimeOfDay.TotalHours;
+
+            if (currentTime < 9 && currentTime > 4)
+                LblHellover.Content = $"Доброе утро, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 9 && currentTime < 18)
+                LblHellover.Content = $"Добрый день, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 18 && currentTime < 22)
+                LblHellover.Content = $"Добрый вечер, {Entity.CurrentEmployee.FirstName}!";
+            else
+                LblHellover.Content = $"Доброй ночи, {Entity.CurrentEmployee.FirstName}!";
 
             CbDepartment.ItemsSource = DataService.GetContext().Department.Where(d => d.Name != "Все").ToList();
         }
@@ -96,6 +108,19 @@ namespace PersonnelDepartment.Windows.Manager
             {
 
             }
+
+
+
+            var currentTime = DateTime.Now.TimeOfDay.TotalHours;
+
+            if (currentTime < 9 && currentTime > 4)
+                LblHellover.Content = $"Доброе утро, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 9 && currentTime < 18)
+                LblHellover.Content = $"Добрый день, {Entity.CurrentEmployee.FirstName}!";
+            else if (currentTime > 18 && currentTime < 22)
+                LblHellover.Content = $"Добрый вечер, {Entity.CurrentEmployee.FirstName}!";
+            else
+                LblHellover.Content = $"Доброй ночи, {Entity.CurrentEmployee.FirstName}!";
         }
     }
 }
