@@ -31,6 +31,19 @@ namespace PersonnelDepartment.Views.Manager
         private void UserControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             DgDepartment.ItemsSource = DataService.GetContext().Department.ToList();
+            try
+            {
+                var departments = DataService.GetContext().Department.ToList();
+                foreach (var department in departments)
+                {
+                    department.QuantityAtTheMoment = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList().Count;
+                }
+                DataService.GetContext().SaveChanges();
+            }
+            catch
+            {
+
+            }
         }
 
         private void Back(object sender, RoutedEventArgs e)
@@ -76,6 +89,19 @@ namespace PersonnelDepartment.Views.Manager
         private void DepartmentAddViewClosed(object sender, DependencyPropertyChangedEventArgs e)
         {
             DgDepartment.ItemsSource = DataService.GetContext().Department.ToList();
+            try
+            {
+                var departments = DataService.GetContext().Department.ToList();
+                foreach (var department in departments)
+                {
+                    department.QuantityAtTheMoment = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList().Count;
+                }
+                DataService.GetContext().SaveChanges();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

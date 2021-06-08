@@ -206,10 +206,10 @@
                         fw:PointerTracker.Enabled="True"
                         fw:RevealElement.MouseOverBackground="DimGray"
                         Background="Gray"
+                        Click="AboutProgram"
                         FontFamily="Century Gothic"
                         FontSize="18"
                         Foreground="White"
-                        Click="AboutProgram"
                         Opacity="0.9"
                         Style="{DynamicResource ButtonRevealStyle}">
                         <Grid>
@@ -292,9 +292,9 @@
             <Rectangle
                 Grid.RowSpan="2"
                 Margin="20"
+                VerticalAlignment="Center"
                 RadiusX="1"
                 RadiusY="1"
-                VerticalAlignment="Center"
                 Stroke="{StaticResource Main}"
                 StrokeThickness="2" />
 
@@ -430,16 +430,19 @@
         <views:EmployeeListView
             x:Name="EmployeeListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
 
         <views:ApplicantListView
             x:Name="ApplicantListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
 
         <views:DepartmentListView
             x:Name="DepartmentListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
     </Grid>
 </mah:MetroWindow>

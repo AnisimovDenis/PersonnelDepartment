@@ -80,5 +80,22 @@ namespace PersonnelDepartment.Windows.Manager
         {
             new WinAboutProgram().ShowDialog();
         }
+
+        private void Update(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            try
+            {
+                var departments = DataService.GetContext().Department.ToList();
+                foreach (var department in departments)
+                {
+                    department.QuantityAtTheMoment = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList().Count;
+                }
+                DataService.GetContext().SaveChanges();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

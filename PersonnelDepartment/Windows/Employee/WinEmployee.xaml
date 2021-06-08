@@ -374,11 +374,13 @@
         <views:EmployeeListView
             x:Name="EmployeeListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
 
         <views:ApplicantListView
             x:Name="ApplicantListView"
             Grid.ColumnSpan="2"
+            IsVisibleChanged="Update"
             Visibility="Collapsed" />
     </Grid>
 </mah:MetroWindow>

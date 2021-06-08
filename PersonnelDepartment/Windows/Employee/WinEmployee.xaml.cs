@@ -69,5 +69,22 @@ namespace PersonnelDepartment.Windows.Employee
             if (MB.MessageBoxQuestion("Вы действительно хотите выйти?"))
                 App.Current.Shutdown();
         }
+
+        private void Update(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            try
+            {
+                var departments = DataService.GetContext().Department.ToList();
+                foreach (var department in departments)
+                {
+                    department.QuantityAtTheMoment = DataService.GetContext().Employee.Where(emp => emp.Department.Name == department.Name).ToList().Count;
+                }
+                DataService.GetContext().SaveChanges();
+            }
+            catch
+            {
+
+            }
+        }
     }
 }
