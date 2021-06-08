@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
 using PersonnelDepartment.Services;
+using PersonnelDepartment.Windows.Admin;
 using PersonnelDepartment.Windows.Employee;
 using PersonnelDepartment.Windows.Manager;
 using System;
@@ -76,6 +77,10 @@ namespace PersonnelDepartment.Windows.Autotification
                                 break;
                             case 2:
                                 new WinEmployee().Show();
+                                this.Close();
+                                break;
+                            case 3:
+                                new WinAdmin().Show();
                                 this.Close();
                                 break;
                         }

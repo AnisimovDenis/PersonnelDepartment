@@ -225,6 +225,21 @@
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Services\Captcha.cs" />
     <Compile Include="Services\MB.cs" />
+    <Compile Include="Views\Admin\AdminEditEmployeeView.xaml.cs">
+      <DependentUpon>AdminEditEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AdminEmployeeListView.xaml.cs">
+      <DependentUpon>AdminEmployeeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UserAddView.xaml.cs">
+      <DependentUpon>UserAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UserEditView.xaml.cs">
+      <DependentUpon>UserEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UserListView.xaml.cs">
+      <DependentUpon>UserListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Manager\ApplicantAddView.xaml.cs">
       <DependentUpon>ApplicantAddView.xaml</DependentUpon>
     </Compile>
@@ -263,6 +278,9 @@
     </Compile>
     <Compile Include="Windows\Additionally\WinAddPosition.xaml.cs">
       <DependentUpon>WinAddPosition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Admin\WinAdmin.xaml.cs">
+      <DependentUpon>WinAdmin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Autotification\WinSignIn.xaml.cs">
       <DependentUpon>WinSignIn.xaml</DependentUpon>
@@ -313,6 +331,26 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminEditEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\AdminEmployeeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\UserAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\UserEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\UserListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -368,6 +406,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\Admin\WinAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Autotification\WinSignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,5 +457,6 @@
     <Resource Include="Resources\defaultphoto.png" />
     <Resource Include="Resources\icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

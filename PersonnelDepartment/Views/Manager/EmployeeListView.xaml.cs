@@ -48,7 +48,14 @@ namespace PersonnelDepartment.Views.Manager
 
         private void Searching(object sender, TextChangedEventArgs e)
         {
-            LvItems.ItemsSource = DataService.GetContext().Employee.Where(emp => emp.LastName.StartsWith(TbSearch.Text) && emp.IsFired != true).ToList();
+            if (LvItems.Visibility == Visibility.Visible)
+                LvItems.ItemsSource = DataService.GetContext().Employee
+                    .Where(s => string.Concat(s.LastName, " ", s.FirstName, " ", s.MiddleName)
+                    .StartsWith(TbSearch.Text)).ToList();
+            else
+                LvFiredEmployees.ItemsSource = DataService.GetContext().Employee
+                    .Where(s => string.Concat(s.LastName, " ", s.FirstName, " ", s.MiddleName)
+                    .StartsWith(TbSearch.Text) && s.IsFired == true).ToList();
         }
 
         private void Filter(object sender, SelectionChangedEventArgs e)

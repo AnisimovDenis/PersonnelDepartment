@@ -42,6 +42,12 @@
         <Setter Property="Foreground" Value="#FF8C8C8C" />
     </Style>
 
+    <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="Century Gothic" />
+        <Setter Property="Foreground" Value="#FF8C8C8C" />
+    </Style>
+
     <Style BasedOn="{StaticResource MahApps.Styles.TextBox}" TargetType="TextBox">
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -72,7 +78,7 @@
         <Setter Property="FontFamily" Value="Century Gothic" />
         <Setter Property="Foreground" Value="{StaticResource Foreground}" />
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style
