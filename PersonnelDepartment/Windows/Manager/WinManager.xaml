@@ -209,6 +209,7 @@
                         FontFamily="Century Gothic"
                         FontSize="18"
                         Foreground="White"
+                        Click="AboutProgram"
                         Opacity="0.9"
                         Style="{DynamicResource ButtonRevealStyle}">
                         <Grid>
@@ -288,6 +289,15 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
+            <Rectangle
+                Grid.RowSpan="2"
+                Margin="20"
+                RadiusX="1"
+                RadiusY="1"
+                VerticalAlignment="Center"
+                Stroke="{StaticResource Main}"
+                StrokeThickness="2" />
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -318,14 +328,14 @@
                         Grid.ColumnSpan="4"
                         Margin="20,5"
                         VerticalAlignment="Bottom"
-                        Stroke="Black"
+                        Stroke="{StaticResource BorderBrush}"
                         StrokeThickness="1" />
                     <Rectangle
                         Grid.Row="1"
                         Grid.RowSpan="3"
                         Margin="20,5"
                         HorizontalAlignment="Left"
-                        Stroke="Black"
+                        Stroke="{StaticResource BorderBrush}"
                         StrokeThickness="1" />
 
                     <Label
@@ -408,6 +418,7 @@
                     x:Name="CbDepartment"
                     Grid.Row="1"
                     Width="250"
+                    Margin="8,8,8,12"
                     HorizontalAlignment="Center"
                     mah:TextBoxHelper.Watermark="Отделы"
                     DisplayMemberPath="Name"

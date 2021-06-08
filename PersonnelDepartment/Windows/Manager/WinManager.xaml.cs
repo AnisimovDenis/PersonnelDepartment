@@ -1,6 +1,7 @@
 ﻿using MahApps.Metro.Controls;
 using PersonnelDepartment.Data;
 using PersonnelDepartment.Services;
+using PersonnelDepartment.Windows.Additionally;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,6 +74,11 @@ namespace PersonnelDepartment.Windows.Manager
         {
             if (MB.MessageBoxQuestion("Вы действительно хотите выйти?"))
                 App.Current.Shutdown();
+        }
+
+        private void AboutProgram(object sender, RoutedEventArgs e)
+        {
+            new WinAboutProgram().ShowDialog();
         }
     }
 }
