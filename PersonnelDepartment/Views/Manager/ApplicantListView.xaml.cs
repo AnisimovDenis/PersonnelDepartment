@@ -49,7 +49,9 @@ namespace PersonnelDepartment.Views.Manager
 
         private void Searching(object sender, TextChangedEventArgs e)
         {
-            LvItems.ItemsSource = DataService.GetContext().Applicant.Where(emp => emp.LastName.StartsWith(TbSearch.Text)).ToList();
+            LvItems.ItemsSource = DataService.GetContext().Applicant
+                    .Where(s => string.Concat(s.LastName, " ", s.FirstName, " ", s.MiddleName)
+                    .StartsWith(TbSearch.Text)).ToList();
         }
 
         private void Filter(object sender, SelectionChangedEventArgs e)

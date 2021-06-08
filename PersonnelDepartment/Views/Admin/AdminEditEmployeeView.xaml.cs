@@ -42,7 +42,7 @@ namespace PersonnelDepartment.Views.Admin
                     DataService.GetContext().SaveChanges();
                     MB.MessageBoxInfo("Логин успешно присвоен");
                 }
-                catch 
+                catch
                 {
                     MB.MessageBoxError("Ошибка подключения к базе данных");
                 }
@@ -52,7 +52,10 @@ namespace PersonnelDepartment.Views.Admin
         private void OpenAddApplicant(object sender, DependencyPropertyChangedEventArgs e)
         {
             DataContext = Entity.Employee;
-            CbUser.ItemsSource = DataService.GetContext().User.ToList();
+            CbUser.ItemsSource = DataService.GetContext().User.Where(u =>
+                                 u.Login != u.Employee.FirstOrDefault(emp =>
+                                 emp.User.Login == u.Login)
+                                 .User.Login).ToList();
         }
 
         private void Back(object sender, RoutedEventArgs e)

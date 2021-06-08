@@ -240,7 +240,7 @@ namespace PersonnelDepartment.Views.Manager
         {
             new WinAddPosition().ShowDialog();
 
-            CbPosition.ItemsSource = DataService.GetContext().Position.ToList();
+            CbPosition.ItemsSource = DataService.GetContext().Position.Where(p => p.Name != "Все").ToList();
         }
     }
 }

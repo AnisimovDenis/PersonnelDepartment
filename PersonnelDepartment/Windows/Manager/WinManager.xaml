@@ -96,10 +96,10 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White">
-                            <iconPack:Material
+                            <iconPack:MaterialDesign
                                 Width="50"
                                 Height="50"
-                                Kind="HumanGreeting" />
+                                Kind="People" />
                         </Label>
 
                         <Label
@@ -136,10 +136,10 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White">
-                            <iconPack:Material
+                            <iconPack:MaterialDesign
                                 Width="50"
                                 Height="50"
-                                Kind="Account" />
+                                Kind="PersonAdd" />
                         </Label>
 
                         <Label
@@ -176,10 +176,10 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White">
-                            <iconPack:Material
+                            <iconPack:MaterialDesign
                                 Width="50"
                                 Height="50"
-                                Kind="Paperclip" />
+                                Kind="Work" />
                         </Label>
 
                         <Label
@@ -187,7 +187,7 @@
                             Margin="0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Content="Работы"
+                            Content="Отделы"
                             Foreground="White" />
                     </Grid>
                 </Button>
@@ -246,10 +246,10 @@
                         fw:PointerTracker.Enabled="True"
                         fw:RevealElement.MouseOverBackground="DimGray"
                         Background="Gray"
+                        Click="Exit"
                         FontFamily="Century Gothic"
                         FontSize="18"
                         Foreground="White"
-                        Click="Exit"
                         Opacity="0.9"
                         Style="{DynamicResource ButtonRevealStyle}">
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">

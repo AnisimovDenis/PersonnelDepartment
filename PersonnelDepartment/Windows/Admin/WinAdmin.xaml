@@ -96,10 +96,10 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White">
-                            <iconPack:Material
+                            <iconPack:MaterialDesign
                                 Width="50"
                                 Height="50"
-                                Kind="HumanGreeting" />
+                                Kind="People" />
                         </Label>
 
                         <Label
@@ -136,10 +136,10 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White">
-                            <iconPack:Material
+                            <iconPack:MaterialDesign
                                 Width="50"
                                 Height="50"
-                                Kind="Account" />
+                                Kind="VpnKey" />
                         </Label>
 
                         <Label
@@ -197,12 +197,12 @@
                     Grid.Row="1"
                     Grid.Column="1"
                     Width="210"
-                    Click="Exit"
                     Height="100"
                     Margin="5,0,0,0"
                     fw:PointerTracker.Enabled="True"
                     fw:RevealElement.MouseOverBackground="DimGray"
                     Background="Gray"
+                    Click="Exit"
                     FontFamily="Century Gothic"
                     FontSize="18"
                     Foreground="White"

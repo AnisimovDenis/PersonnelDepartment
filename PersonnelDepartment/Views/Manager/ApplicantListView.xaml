@@ -75,7 +75,7 @@
                 x:Name="TbSearch"
                 Width="250"
                 mah:ControlsHelper.CornerRadius="5"
-                mah:TextBoxHelper.Watermark="Поиск по фамилии"
+                mah:TextBoxHelper.Watermark="Поиск по ФИО"
                 TextChanged="Searching" />
         </StackPanel>
 

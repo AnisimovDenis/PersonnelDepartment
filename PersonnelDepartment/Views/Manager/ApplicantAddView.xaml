@@ -330,19 +330,27 @@
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgMilitaryId"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="MilitaryId">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Военный билет" />
+                                    <Image
+                                        x:Name="ImgMilitaryId"
+                                        Grid.Row="1"
+                                        Width="800"
+                                        Height="650">
+                                        <Image.Source>
+                                            <Binding Path="MilitaryId">
+                                                <Binding.TargetNullValue>
+                                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                                </Binding.TargetNullValue>
+                                            </Binding>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
                             </Label.ToolTip>
                             <Label.Content>
                                 <iconPack:Material
@@ -369,19 +377,27 @@
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgMedicalCertificate"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="MedicalCertificate">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Медицинская карта" />
+                                    <Image
+                                        x:Name="ImgMedicalCertificate"
+                                        Grid.Row="1"
+                                        Width="800"
+                                        Height="650">
+                                        <Image.Source>
+                                            <Binding Path="MedicalCertificate">
+                                                <Binding.TargetNullValue>
+                                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                                </Binding.TargetNullValue>
+                                            </Binding>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
                             </Label.ToolTip>
                             <Label.Content>
                                 <iconPack:Material
@@ -415,19 +431,27 @@
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgCertificateOfGoodConduct"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="CertificateOfGoodConduct">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Справка о судимости" />
+                                    <Image
+                                        x:Name="ImgCertificateOfGoodConduct"
+                                        Grid.Row="1"
+                                        Width="800"
+                                        Height="650">
+                                        <Image.Source>
+                                            <Binding Path="CertificateOfGoodConduct">
+                                                <Binding.TargetNullValue>
+                                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                                </Binding.TargetNullValue>
+                                            </Binding>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
                             </Label.ToolTip>
                             <Label.Content>
                                 <iconPack:Material
@@ -454,19 +478,27 @@
 
                         <Label Grid.Column="1">
                             <Label.ToolTip>
-                                <Image
-                                    x:Name="ImgNarcologicalCertificate"
-                                    Grid.RowSpan="2"
-                                    Width="350"
-                                    Height="350">
-                                    <Image.Source>
-                                        <Binding Path="NarcologicalCertificate">
-                                            <Binding.TargetNullValue>
-                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
-                                            </Binding.TargetNullValue>
-                                        </Binding>
-                                    </Image.Source>
-                                </Image>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="Наркологическая справка" />
+                                    <Image
+                                        x:Name="ImgNarcologicalCertificate"
+                                        Grid.Row="1"
+                                        Width="800"
+                                        Height="650">
+                                        <Image.Source>
+                                            <Binding Path="NarcologicalCertificate">
+                                                <Binding.TargetNullValue>
+                                                    <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                                </Binding.TargetNullValue>
+                                            </Binding>
+                                        </Image.Source>
+                                    </Image>
+                                </Grid>
                             </Label.ToolTip>
                             <Label.Content>
                                 <iconPack:Material

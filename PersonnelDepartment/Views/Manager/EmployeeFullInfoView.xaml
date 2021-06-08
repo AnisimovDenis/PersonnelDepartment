@@ -304,6 +304,28 @@
                                 </Binding.TargetNullValue>
                             </Binding>
                         </Image.Source>
+                        <Image.ToolTip>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Label Content="Военный билет" />
+                                <Image
+                                    Grid.Row="1"
+                                    Width="800"
+                                    Height="650">
+                                    <Image.Source>
+                                        <Binding Path="MilitaryId">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </Image.ToolTip>
                     </Image>
 
                     <Image
@@ -318,6 +340,28 @@
                                 </Binding.TargetNullValue>
                             </Binding>
                         </Image.Source>
+                        <Image.ToolTip>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Label Content="Медицинская справка" />
+                                <Image
+                                    Grid.Row="1"
+                                    Width="800"
+                                    Height="650">
+                                    <Image.Source>
+                                        <Binding Path="MedicalCertificate">
+                                            <Binding.TargetNullValue>
+                                                <ImageSource>/Resources/no_image.jpg</ImageSource>
+                                            </Binding.TargetNullValue>
+                                        </Binding>
+                                    </Image.Source>
+                                </Image>
+                            </Grid>
+                        </Image.ToolTip>
                     </Image>
                 </Grid>
             </Grid>
